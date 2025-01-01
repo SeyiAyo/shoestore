@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.core.validators import MinValueValidator, MaxValueValidator
 
 # Create your models here.
 
@@ -20,14 +21,27 @@ class Product(models.Model):
     price = models.DecimalField(max_digits=10, decimal_places=2)
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='products')
     image = models.ImageField(upload_to='products/', null=True, blank=True)
+    brand = models.CharField(max_length=100)
+    rating = models.FloatField(
+        default=0.0,
+        validators=[MinValueValidator(0.0), MaxValueValidator(5.0)]
+    )
+    review_count = models.IntegerField(default=0)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     in_stock = models.BooleanField(default=True)
-    brand = models.CharField(max_length=100)
     sku = models.CharField(max_length=100, unique=True)
 
     def __str__(self):
         return self.name
+
+    @property
+    def available_sizes(self):
+        return self.sizes.filter(quantity__gt=0).values_list('size', flat=True)
+
+    @property
+    def available_colors(self):
+        return ['Black']  # Default color, you can extend this later
 
 class Size(models.Model):
     GENDER_CHOICES = [
@@ -37,12 +51,17 @@ class Size(models.Model):
     ]
     
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='sizes')
-    size = models.CharField(max_length=10)
+    size = models.CharField(max_length=10)  # Store as 'US 7', 'US 8', etc.
     gender = models.CharField(max_length=1, choices=GENDER_CHOICES)
     quantity = models.IntegerField(default=0)
 
     def __str__(self):
         return f"{self.product.name} - {self.get_gender_display()} Size {self.size}"
+
+    def save(self, *args, **kwargs):
+        if not self.size.startswith('US '):
+            self.size = f'US {self.size}'
+        super().save(*args, **kwargs)
 
 class Order(models.Model):
     STATUS_CHOICES = [
