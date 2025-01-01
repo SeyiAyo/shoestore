@@ -1,0 +1,500 @@
+DEBUG 2025-01-01 21:47:28,677 debug 21964 7256 
+REQUEST: GET /api/products/
+Headers: {'Content-Length': '', 'Content-Type': 'application/json', 'User-Agent': 'Dart/3.6 (dart:io)', 'Accept': 'application/json', 'Accept-Encoding': 'gzip', 'Host': '10.0.2.2:8000'}
+Query Params: {}
+Body: Could not parse request body
+        
+DEBUG 2025-01-01 21:47:28,678 debug 21964 7256 Fetching products - Extra: {"params": {}}
+DEBUG 2025-01-01 21:47:28,678 debug 21964 7256 Filtering products - Extra: {"category": null, "min_price": null, "max_price": null, "brand": null}
+DEBUG 2025-01-01 21:47:28,690 debug 21964 5744 
+REQUEST: GET /api/categories/
+Headers: {'Content-Length': '', 'Content-Type': 'application/json', 'User-Agent': 'Dart/3.6 (dart:io)', 'Accept': 'application/json', 'Accept-Encoding': 'gzip', 'Host': '10.0.2.2:8000'}
+Query Params: {}
+Body: Could not parse request body
+        
+DEBUG 2025-01-01 21:47:28,691 debug 21964 5744 Fetching categories - Extra: {"user": "anonymous"}
+DEBUG 2025-01-01 21:47:28,695 debug 21964 5744 
+RESPONSE: GET /api/categories/
+Status: 200
+Content: [{"id":1,"name":"Running","description":"High-performance running shoes"},{"id":2,"name":"Casual","description":"Comfortable everyday shoes"},{"id":3,"name":"Sport","description":"Athletic and training shoes"},{"id":4,"name":"Fashion","description":"Trendy and stylish shoes"}]
+        
+DEBUG 2025-01-01 21:47:28,700 debug 21964 7256 
+RESPONSE: GET /api/products/
+Status: 200
+Content: [{"id":"1","name":"PandaSpeed Runner","description":"Lightweight running shoes with superior cushioning","price":129.99,"imageUrl":"https://images.unsplash.com/photo-1542291026-7eec264c27ff","sizes":["40","41","42"],"category":"Running","brand":"PandaShoes","colors":["Black"],"rating":0.0,"reviewCount":0},{"id":"2","name":"Urban Panda Casual","description":"Stylish and comfortable casual shoes","price":89.99,"imageUrl":"https://images.unsplash.com/photo-1542291026-7eec264c27ff","sizes":["39","40","41"],"category":"Casual","brand":"PandaShoes","colors":["Black"],"rating":0.0,"reviewCount":0},{"id":"3","name":"PandaFlex Training","description":"Versatile training shoes for gym and sports","price":109.99,"imageUrl":"https://images.unsplash.com/photo-1542291026-7eec264c27ff","sizes":["40","41","42"],"category":"Sport","brand":"PandaShoes","colors":["Black"],"rating":0.0,"reviewCount":0},{"id":"4","name":"Panda Fashion Elite","description":"Premium fashion sneakers for the style-conscious","price":149.99,"imageUrl":"https://images.unsplash.com/photo-1542291026-7eec264c27ff","sizes":["38","39","40"],"category":"Fashion","brand":"PandaShoes","colors":["Black"],"rating":0.0,"reviewCount":0},{"id":"5","name":"PandaAir Boost","description":"Advanced cushioning technology for long-distance running","price":159.99,"imageUrl":"https://images.unsplash.com/photo-1542291026-7eec264c27ff","sizes":["41","42","43"],"category":"Running","brand":"PandaShoes","colors":["Black"],"rating":0.0,"reviewCount":0}]
+        
+DEBUG 2025-01-01 21:48:07,216 debug 21964 24076 
+REQUEST: GET /api/products/
+Headers: {'Content-Length': '', 'Content-Type': 'application/json', 'User-Agent': 'Dart/3.6 (dart:io)', 'Accept': 'application/json', 'Accept-Encoding': 'gzip', 'Host': '10.0.2.2:8000'}
+Query Params: {'category': ['1']}
+Body: Could not parse request body
+        
+DEBUG 2025-01-01 21:48:07,216 debug 21964 24076 Fetching products - Extra: {"params": {"category": ["1"]}}
+DEBUG 2025-01-01 21:48:07,216 debug 21964 24076 Filtering products - Extra: {"category": "1", "min_price": null, "max_price": null, "brand": null}
+DEBUG 2025-01-01 21:48:07,220 debug 21964 24076 
+RESPONSE: GET /api/products/
+Status: 200
+Content: []
+        
+DEBUG 2025-01-01 21:48:07,225 debug 21964 15576 
+REQUEST: GET /api/categories/
+Headers: {'Content-Length': '', 'Content-Type': 'application/json', 'User-Agent': 'Dart/3.6 (dart:io)', 'Accept': 'application/json', 'Accept-Encoding': 'gzip', 'Host': '10.0.2.2:8000'}
+Query Params: {}
+Body: Could not parse request body
+        
+DEBUG 2025-01-01 21:48:07,227 debug 21964 15576 Fetching categories - Extra: {"user": "anonymous"}
+DEBUG 2025-01-01 21:48:07,230 debug 21964 15576 
+RESPONSE: GET /api/categories/
+Status: 200
+Content: [{"id":1,"name":"Running","description":"High-performance running shoes"},{"id":2,"name":"Casual","description":"Comfortable everyday shoes"},{"id":3,"name":"Sport","description":"Athletic and training shoes"},{"id":4,"name":"Fashion","description":"Trendy and stylish shoes"}]
+        
+DEBUG 2025-01-01 21:48:11,225 debug 21964 22888 
+REQUEST: GET /api/products/
+Headers: {'Content-Length': '', 'Content-Type': 'application/json', 'User-Agent': 'Dart/3.6 (dart:io)', 'Accept': 'application/json', 'Accept-Encoding': 'gzip', 'Host': '10.0.2.2:8000'}
+Query Params: {'category': ['2']}
+Body: Could not parse request body
+        
+DEBUG 2025-01-01 21:48:11,226 debug 21964 22888 Fetching products - Extra: {"params": {"category": ["2"]}}
+DEBUG 2025-01-01 21:48:11,226 debug 21964 22888 Filtering products - Extra: {"category": "2", "min_price": null, "max_price": null, "brand": null}
+DEBUG 2025-01-01 21:48:11,230 debug 21964 20356 
+REQUEST: GET /api/categories/
+Headers: {'Content-Length': '', 'Content-Type': 'application/json', 'User-Agent': 'Dart/3.6 (dart:io)', 'Accept': 'application/json', 'Accept-Encoding': 'gzip', 'Host': '10.0.2.2:8000'}
+Query Params: {}
+Body: Could not parse request body
+        
+DEBUG 2025-01-01 21:48:11,231 debug 21964 20356 Fetching categories - Extra: {"user": "anonymous"}
+DEBUG 2025-01-01 21:48:11,233 debug 21964 22888 
+RESPONSE: GET /api/products/
+Status: 200
+Content: []
+        
+DEBUG 2025-01-01 21:48:11,234 debug 21964 20356 
+RESPONSE: GET /api/categories/
+Status: 200
+Content: [{"id":1,"name":"Running","description":"High-performance running shoes"},{"id":2,"name":"Casual","description":"Comfortable everyday shoes"},{"id":3,"name":"Sport","description":"Athletic and training shoes"},{"id":4,"name":"Fashion","description":"Trendy and stylish shoes"}]
+        
+DEBUG 2025-01-01 21:48:30,480 debug 21964 22000 
+REQUEST: GET /api/products/
+Headers: {'Content-Length': '', 'Content-Type': 'application/json', 'User-Agent': 'Dart/3.6 (dart:io)', 'Accept': 'application/json', 'Accept-Encoding': 'gzip', 'Host': '10.0.2.2:8000'}
+Query Params: {'category': ['3']}
+Body: Could not parse request body
+        
+DEBUG 2025-01-01 21:48:30,481 debug 21964 22000 Fetching products - Extra: {"params": {"category": ["3"]}}
+DEBUG 2025-01-01 21:48:30,481 debug 21964 22000 Filtering products - Extra: {"category": "3", "min_price": null, "max_price": null, "brand": null}
+DEBUG 2025-01-01 21:48:30,485 debug 21964 22000 
+RESPONSE: GET /api/products/
+Status: 200
+Content: []
+        
+DEBUG 2025-01-01 21:48:30,486 debug 21964 21764 
+REQUEST: GET /api/categories/
+Headers: {'Content-Length': '', 'Content-Type': 'application/json', 'User-Agent': 'Dart/3.6 (dart:io)', 'Accept': 'application/json', 'Accept-Encoding': 'gzip', 'Host': '10.0.2.2:8000'}
+Query Params: {}
+Body: Could not parse request body
+        
+DEBUG 2025-01-01 21:48:30,487 debug 21964 21764 Fetching categories - Extra: {"user": "anonymous"}
+DEBUG 2025-01-01 21:48:30,489 debug 21964 21764 
+RESPONSE: GET /api/categories/
+Status: 200
+Content: [{"id":1,"name":"Running","description":"High-performance running shoes"},{"id":2,"name":"Casual","description":"Comfortable everyday shoes"},{"id":3,"name":"Sport","description":"Athletic and training shoes"},{"id":4,"name":"Fashion","description":"Trendy and stylish shoes"}]
+        
+DEBUG 2025-01-01 21:48:32,651 debug 21964 23328 
+REQUEST: GET /api/products/
+Headers: {'Content-Length': '', 'Content-Type': 'application/json', 'User-Agent': 'Dart/3.6 (dart:io)', 'Accept': 'application/json', 'Accept-Encoding': 'gzip', 'Host': '10.0.2.2:8000'}
+Query Params: {}
+Body: Could not parse request body
+        
+DEBUG 2025-01-01 21:48:32,652 debug 21964 23328 Fetching products - Extra: {"params": {}}
+DEBUG 2025-01-01 21:48:32,652 debug 21964 23328 Filtering products - Extra: {"category": null, "min_price": null, "max_price": null, "brand": null}
+DEBUG 2025-01-01 21:48:32,653 debug 21964 9908 
+REQUEST: GET /api/categories/
+Headers: {'Content-Length': '', 'Content-Type': 'application/json', 'User-Agent': 'Dart/3.6 (dart:io)', 'Accept': 'application/json', 'Accept-Encoding': 'gzip', 'Host': '10.0.2.2:8000'}
+Query Params: {}
+Body: Could not parse request body
+        
+DEBUG 2025-01-01 21:48:32,654 debug 21964 9908 Fetching categories - Extra: {"user": "anonymous"}
+DEBUG 2025-01-01 21:48:32,658 debug 21964 9908 
+RESPONSE: GET /api/categories/
+Status: 200
+Content: [{"id":1,"name":"Running","description":"High-performance running shoes"},{"id":2,"name":"Casual","description":"Comfortable everyday shoes"},{"id":3,"name":"Sport","description":"Athletic and training shoes"},{"id":4,"name":"Fashion","description":"Trendy and stylish shoes"}]
+        
+DEBUG 2025-01-01 21:48:32,669 debug 21964 23328 
+RESPONSE: GET /api/products/
+Status: 200
+Content: [{"id":"1","name":"PandaSpeed Runner","description":"Lightweight running shoes with superior cushioning","price":129.99,"imageUrl":"https://images.unsplash.com/photo-1542291026-7eec264c27ff","sizes":["40","41","42"],"category":"Running","brand":"PandaShoes","colors":["Black"],"rating":0.0,"reviewCount":0},{"id":"2","name":"Urban Panda Casual","description":"Stylish and comfortable casual shoes","price":89.99,"imageUrl":"https://images.unsplash.com/photo-1542291026-7eec264c27ff","sizes":["39","40","41"],"category":"Casual","brand":"PandaShoes","colors":["Black"],"rating":0.0,"reviewCount":0},{"id":"3","name":"PandaFlex Training","description":"Versatile training shoes for gym and sports","price":109.99,"imageUrl":"https://images.unsplash.com/photo-1542291026-7eec264c27ff","sizes":["40","41","42"],"category":"Sport","brand":"PandaShoes","colors":["Black"],"rating":0.0,"reviewCount":0},{"id":"4","name":"Panda Fashion Elite","description":"Premium fashion sneakers for the style-conscious","price":149.99,"imageUrl":"https://images.unsplash.com/photo-1542291026-7eec264c27ff","sizes":["38","39","40"],"category":"Fashion","brand":"PandaShoes","colors":["Black"],"rating":0.0,"reviewCount":0},{"id":"5","name":"PandaAir Boost","description":"Advanced cushioning technology for long-distance running","price":159.99,"imageUrl":"https://images.unsplash.com/photo-1542291026-7eec264c27ff","sizes":["41","42","43"],"category":"Running","brand":"PandaShoes","colors":["Black"],"rating":0.0,"reviewCount":0}]
+        
+DEBUG 2025-01-01 21:48:38,367 debug 21964 17324 
+REQUEST: GET /api/products/
+Headers: {'Content-Length': '', 'Content-Type': 'application/json', 'User-Agent': 'Dart/3.6 (dart:io)', 'Accept': 'application/json', 'Accept-Encoding': 'gzip', 'Host': '10.0.2.2:8000'}
+Query Params: {'category': ['4']}
+Body: Could not parse request body
+        
+DEBUG 2025-01-01 21:48:38,368 debug 21964 17324 Fetching products - Extra: {"params": {"category": ["4"]}}
+DEBUG 2025-01-01 21:48:38,368 debug 21964 17324 Filtering products - Extra: {"category": "4", "min_price": null, "max_price": null, "brand": null}
+DEBUG 2025-01-01 21:48:38,372 debug 21964 17324 
+RESPONSE: GET /api/products/
+Status: 200
+Content: []
+        
+DEBUG 2025-01-01 21:48:38,376 debug 21964 4284 
+REQUEST: GET /api/categories/
+Headers: {'Content-Length': '', 'Content-Type': 'application/json', 'User-Agent': 'Dart/3.6 (dart:io)', 'Accept': 'application/json', 'Accept-Encoding': 'gzip', 'Host': '10.0.2.2:8000'}
+Query Params: {}
+Body: Could not parse request body
+        
+DEBUG 2025-01-01 21:48:38,376 debug 21964 4284 Fetching categories - Extra: {"user": "anonymous"}
+DEBUG 2025-01-01 21:48:38,378 debug 21964 4284 
+RESPONSE: GET /api/categories/
+Status: 200
+Content: [{"id":1,"name":"Running","description":"High-performance running shoes"},{"id":2,"name":"Casual","description":"Comfortable everyday shoes"},{"id":3,"name":"Sport","description":"Athletic and training shoes"},{"id":4,"name":"Fashion","description":"Trendy and stylish shoes"}]
+        
+DEBUG 2025-01-01 21:48:40,057 debug 21964 23960 
+REQUEST: GET /api/products/
+Headers: {'Content-Length': '', 'Content-Type': 'application/json', 'User-Agent': 'Dart/3.6 (dart:io)', 'Accept': 'application/json', 'Accept-Encoding': 'gzip', 'Host': '10.0.2.2:8000'}
+Query Params: {'category': ['2']}
+Body: Could not parse request body
+        
+DEBUG 2025-01-01 21:48:40,057 debug 21964 23960 Fetching products - Extra: {"params": {"category": ["2"]}}
+DEBUG 2025-01-01 21:48:40,057 debug 21964 23960 Filtering products - Extra: {"category": "2", "min_price": null, "max_price": null, "brand": null}
+DEBUG 2025-01-01 21:48:40,061 debug 21964 13384 
+REQUEST: GET /api/categories/
+Headers: {'Content-Length': '', 'Content-Type': 'application/json', 'User-Agent': 'Dart/3.6 (dart:io)', 'Accept': 'application/json', 'Accept-Encoding': 'gzip', 'Host': '10.0.2.2:8000'}
+Query Params: {}
+Body: Could not parse request body
+        
+DEBUG 2025-01-01 21:48:40,062 debug 21964 13384 Fetching categories - Extra: {"user": "anonymous"}
+DEBUG 2025-01-01 21:48:40,064 debug 21964 23960 
+RESPONSE: GET /api/products/
+Status: 200
+Content: []
+        
+DEBUG 2025-01-01 21:48:40,069 debug 21964 13384 
+RESPONSE: GET /api/categories/
+Status: 200
+Content: [{"id":1,"name":"Running","description":"High-performance running shoes"},{"id":2,"name":"Casual","description":"Comfortable everyday shoes"},{"id":3,"name":"Sport","description":"Athletic and training shoes"},{"id":4,"name":"Fashion","description":"Trendy and stylish shoes"}]
+        
+DEBUG 2025-01-01 21:48:41,608 debug 21964 10672 
+REQUEST: GET /api/products/
+Headers: {'Content-Length': '', 'Content-Type': 'application/json', 'User-Agent': 'Dart/3.6 (dart:io)', 'Accept': 'application/json', 'Accept-Encoding': 'gzip', 'Host': '10.0.2.2:8000'}
+Query Params: {'category': ['3']}
+Body: Could not parse request body
+        
+DEBUG 2025-01-01 21:48:41,608 debug 21964 10672 Fetching products - Extra: {"params": {"category": ["3"]}}
+DEBUG 2025-01-01 21:48:41,609 debug 21964 10672 Filtering products - Extra: {"category": "3", "min_price": null, "max_price": null, "brand": null}
+DEBUG 2025-01-01 21:48:41,612 debug 21964 10672 
+RESPONSE: GET /api/products/
+Status: 200
+Content: []
+        
+DEBUG 2025-01-01 21:48:41,619 debug 21964 20152 
+REQUEST: GET /api/categories/
+Headers: {'Content-Length': '', 'Content-Type': 'application/json', 'User-Agent': 'Dart/3.6 (dart:io)', 'Accept': 'application/json', 'Accept-Encoding': 'gzip', 'Host': '10.0.2.2:8000'}
+Query Params: {}
+Body: Could not parse request body
+        
+DEBUG 2025-01-01 21:48:41,620 debug 21964 20152 Fetching categories - Extra: {"user": "anonymous"}
+DEBUG 2025-01-01 21:48:41,622 debug 21964 20152 
+RESPONSE: GET /api/categories/
+Status: 200
+Content: [{"id":1,"name":"Running","description":"High-performance running shoes"},{"id":2,"name":"Casual","description":"Comfortable everyday shoes"},{"id":3,"name":"Sport","description":"Athletic and training shoes"},{"id":4,"name":"Fashion","description":"Trendy and stylish shoes"}]
+        
+DEBUG 2025-01-01 21:48:43,185 debug 21964 2192 
+REQUEST: GET /api/products/
+Headers: {'Content-Length': '', 'Content-Type': 'application/json', 'User-Agent': 'Dart/3.6 (dart:io)', 'Accept': 'application/json', 'Accept-Encoding': 'gzip', 'Host': '10.0.2.2:8000'}
+Query Params: {}
+Body: Could not parse request body
+        
+DEBUG 2025-01-01 21:48:43,186 debug 21964 2192 Fetching products - Extra: {"params": {}}
+DEBUG 2025-01-01 21:48:43,186 debug 21964 2192 Filtering products - Extra: {"category": null, "min_price": null, "max_price": null, "brand": null}
+DEBUG 2025-01-01 21:48:43,188 debug 21964 25268 
+REQUEST: GET /api/categories/
+Headers: {'Content-Length': '', 'Content-Type': 'application/json', 'User-Agent': 'Dart/3.6 (dart:io)', 'Accept': 'application/json', 'Accept-Encoding': 'gzip', 'Host': '10.0.2.2:8000'}
+Query Params: {}
+Body: Could not parse request body
+        
+DEBUG 2025-01-01 21:48:43,188 debug 21964 25268 Fetching categories - Extra: {"user": "anonymous"}
+DEBUG 2025-01-01 21:48:43,193 debug 21964 25268 
+RESPONSE: GET /api/categories/
+Status: 200
+Content: [{"id":1,"name":"Running","description":"High-performance running shoes"},{"id":2,"name":"Casual","description":"Comfortable everyday shoes"},{"id":3,"name":"Sport","description":"Athletic and training shoes"},{"id":4,"name":"Fashion","description":"Trendy and stylish shoes"}]
+        
+DEBUG 2025-01-01 21:48:43,206 debug 21964 2192 
+RESPONSE: GET /api/products/
+Status: 200
+Content: [{"id":"1","name":"PandaSpeed Runner","description":"Lightweight running shoes with superior cushioning","price":129.99,"imageUrl":"https://images.unsplash.com/photo-1542291026-7eec264c27ff","sizes":["40","41","42"],"category":"Running","brand":"PandaShoes","colors":["Black"],"rating":0.0,"reviewCount":0},{"id":"2","name":"Urban Panda Casual","description":"Stylish and comfortable casual shoes","price":89.99,"imageUrl":"https://images.unsplash.com/photo-1542291026-7eec264c27ff","sizes":["39","40","41"],"category":"Casual","brand":"PandaShoes","colors":["Black"],"rating":0.0,"reviewCount":0},{"id":"3","name":"PandaFlex Training","description":"Versatile training shoes for gym and sports","price":109.99,"imageUrl":"https://images.unsplash.com/photo-1542291026-7eec264c27ff","sizes":["40","41","42"],"category":"Sport","brand":"PandaShoes","colors":["Black"],"rating":0.0,"reviewCount":0},{"id":"4","name":"Panda Fashion Elite","description":"Premium fashion sneakers for the style-conscious","price":149.99,"imageUrl":"https://images.unsplash.com/photo-1542291026-7eec264c27ff","sizes":["38","39","40"],"category":"Fashion","brand":"PandaShoes","colors":["Black"],"rating":0.0,"reviewCount":0},{"id":"5","name":"PandaAir Boost","description":"Advanced cushioning technology for long-distance running","price":159.99,"imageUrl":"https://images.unsplash.com/photo-1542291026-7eec264c27ff","sizes":["41","42","43"],"category":"Running","brand":"PandaShoes","colors":["Black"],"rating":0.0,"reviewCount":0}]
+        
+DEBUG 2025-01-01 21:48:52,489 debug 21964 23816 
+REQUEST: GET /api/products/
+Headers: {'Content-Length': '', 'Content-Type': 'application/json', 'User-Agent': 'Dart/3.6 (dart:io)', 'Accept': 'application/json', 'Accept-Encoding': 'gzip', 'Host': '10.0.2.2:8000'}
+Query Params: {}
+Body: Could not parse request body
+        
+DEBUG 2025-01-01 21:48:52,490 debug 21964 23816 Fetching products - Extra: {"params": {}}
+DEBUG 2025-01-01 21:48:52,490 debug 21964 23816 Filtering products - Extra: {"category": null, "min_price": null, "max_price": null, "brand": null}
+DEBUG 2025-01-01 21:48:52,496 debug 21964 18824 
+REQUEST: GET /api/categories/
+Headers: {'Content-Length': '', 'Content-Type': 'application/json', 'User-Agent': 'Dart/3.6 (dart:io)', 'Accept': 'application/json', 'Accept-Encoding': 'gzip', 'Host': '10.0.2.2:8000'}
+Query Params: {}
+Body: Could not parse request body
+        
+DEBUG 2025-01-01 21:48:52,497 debug 21964 18824 Fetching categories - Extra: {"user": "anonymous"}
+DEBUG 2025-01-01 21:48:52,506 debug 21964 18824 
+RESPONSE: GET /api/categories/
+Status: 200
+Content: [{"id":1,"name":"Running","description":"High-performance running shoes"},{"id":2,"name":"Casual","description":"Comfortable everyday shoes"},{"id":3,"name":"Sport","description":"Athletic and training shoes"},{"id":4,"name":"Fashion","description":"Trendy and stylish shoes"}]
+        
+DEBUG 2025-01-01 21:48:52,513 debug 21964 23816 
+RESPONSE: GET /api/products/
+Status: 200
+Content: [{"id":"1","name":"PandaSpeed Runner","description":"Lightweight running shoes with superior cushioning","price":129.99,"imageUrl":"https://images.unsplash.com/photo-1542291026-7eec264c27ff","sizes":["40","41","42"],"category":"Running","brand":"PandaShoes","colors":["Black"],"rating":0.0,"reviewCount":0},{"id":"2","name":"Urban Panda Casual","description":"Stylish and comfortable casual shoes","price":89.99,"imageUrl":"https://images.unsplash.com/photo-1542291026-7eec264c27ff","sizes":["39","40","41"],"category":"Casual","brand":"PandaShoes","colors":["Black"],"rating":0.0,"reviewCount":0},{"id":"3","name":"PandaFlex Training","description":"Versatile training shoes for gym and sports","price":109.99,"imageUrl":"https://images.unsplash.com/photo-1542291026-7eec264c27ff","sizes":["40","41","42"],"category":"Sport","brand":"PandaShoes","colors":["Black"],"rating":0.0,"reviewCount":0},{"id":"4","name":"Panda Fashion Elite","description":"Premium fashion sneakers for the style-conscious","price":149.99,"imageUrl":"https://images.unsplash.com/photo-1542291026-7eec264c27ff","sizes":["38","39","40"],"category":"Fashion","brand":"PandaShoes","colors":["Black"],"rating":0.0,"reviewCount":0},{"id":"5","name":"PandaAir Boost","description":"Advanced cushioning technology for long-distance running","price":159.99,"imageUrl":"https://images.unsplash.com/photo-1542291026-7eec264c27ff","sizes":["41","42","43"],"category":"Running","brand":"PandaShoes","colors":["Black"],"rating":0.0,"reviewCount":0}]
+        
+DEBUG 2025-01-01 21:50:34,447 debug 21964 12512 
+REQUEST: GET /api/products/
+Headers: {'Content-Length': '', 'Content-Type': 'application/json', 'User-Agent': 'Dart/3.6 (dart:io)', 'Accept': 'application/json', 'Accept-Encoding': 'gzip', 'Host': '10.0.2.2:8000'}
+Query Params: {}
+Body: Could not parse request body
+        
+DEBUG 2025-01-01 21:50:34,447 debug 21964 12512 Fetching products - Extra: {"params": {}}
+DEBUG 2025-01-01 21:50:34,447 debug 21964 12512 Filtering products - Extra: {"category": null, "min_price": null, "max_price": null, "brand": null}
+DEBUG 2025-01-01 21:50:34,452 debug 21964 25380 
+REQUEST: GET /api/categories/
+Headers: {'Content-Length': '', 'Content-Type': 'application/json', 'User-Agent': 'Dart/3.6 (dart:io)', 'Accept': 'application/json', 'Accept-Encoding': 'gzip', 'Host': '10.0.2.2:8000'}
+Query Params: {}
+Body: Could not parse request body
+        
+DEBUG 2025-01-01 21:50:34,453 debug 21964 25380 Fetching categories - Extra: {"user": "anonymous"}
+DEBUG 2025-01-01 21:50:34,458 debug 21964 25380 
+RESPONSE: GET /api/categories/
+Status: 200
+Content: [{"id":1,"name":"Running","description":"High-performance running shoes"},{"id":2,"name":"Casual","description":"Comfortable everyday shoes"},{"id":3,"name":"Sport","description":"Athletic and training shoes"},{"id":4,"name":"Fashion","description":"Trendy and stylish shoes"}]
+        
+DEBUG 2025-01-01 21:50:34,490 debug 21964 12512 
+RESPONSE: GET /api/products/
+Status: 200
+Content: [{"id":"1","name":"PandaSpeed Runner","description":"Lightweight running shoes with superior cushioning","price":129.99,"imageUrl":"https://images.unsplash.com/photo-1542291026-7eec264c27ff","sizes":["40","41","42"],"category":"Running","brand":"PandaShoes","colors":["Black"],"rating":0.0,"reviewCount":0},{"id":"2","name":"Urban Panda Casual","description":"Stylish and comfortable casual shoes","price":89.99,"imageUrl":"https://images.unsplash.com/photo-1542291026-7eec264c27ff","sizes":["39","40","41"],"category":"Casual","brand":"PandaShoes","colors":["Black"],"rating":0.0,"reviewCount":0},{"id":"3","name":"PandaFlex Training","description":"Versatile training shoes for gym and sports","price":109.99,"imageUrl":"https://images.unsplash.com/photo-1542291026-7eec264c27ff","sizes":["40","41","42"],"category":"Sport","brand":"PandaShoes","colors":["Black"],"rating":0.0,"reviewCount":0},{"id":"4","name":"Panda Fashion Elite","description":"Premium fashion sneakers for the style-conscious","price":149.99,"imageUrl":"https://images.unsplash.com/photo-1542291026-7eec264c27ff","sizes":["38","39","40"],"category":"Fashion","brand":"PandaShoes","colors":["Black"],"rating":0.0,"reviewCount":0},{"id":"5","name":"PandaAir Boost","description":"Advanced cushioning technology for long-distance running","price":159.99,"imageUrl":"https://images.unsplash.com/photo-1542291026-7eec264c27ff","sizes":["41","42","43"],"category":"Running","brand":"PandaShoes","colors":["Black"],"rating":0.0,"reviewCount":0}]
+        
+DEBUG 2025-01-01 21:50:36,825 debug 21964 20084 
+REQUEST: GET /api/products/
+Headers: {'Content-Length': '', 'Content-Type': 'application/json', 'User-Agent': 'Dart/3.6 (dart:io)', 'Accept': 'application/json', 'Accept-Encoding': 'gzip', 'Host': '10.0.2.2:8000'}
+Query Params: {'category': ['1']}
+Body: Could not parse request body
+        
+DEBUG 2025-01-01 21:50:36,825 debug 21964 20084 Fetching products - Extra: {"params": {"category": ["1"]}}
+DEBUG 2025-01-01 21:50:36,825 debug 21964 20084 Filtering products - Extra: {"category": "1", "min_price": null, "max_price": null, "brand": null}
+DEBUG 2025-01-01 21:50:36,827 debug 21964 10172 
+REQUEST: GET /api/categories/
+Headers: {'Content-Length': '', 'Content-Type': 'application/json', 'User-Agent': 'Dart/3.6 (dart:io)', 'Accept': 'application/json', 'Accept-Encoding': 'gzip', 'Host': '10.0.2.2:8000'}
+Query Params: {}
+Body: Could not parse request body
+        
+DEBUG 2025-01-01 21:50:36,829 debug 21964 10172 Fetching categories - Extra: {"user": "anonymous"}
+DEBUG 2025-01-01 21:50:36,831 debug 21964 20084 
+RESPONSE: GET /api/products/
+Status: 200
+Content: []
+        
+DEBUG 2025-01-01 21:50:36,833 debug 21964 10172 
+RESPONSE: GET /api/categories/
+Status: 200
+Content: [{"id":1,"name":"Running","description":"High-performance running shoes"},{"id":2,"name":"Casual","description":"Comfortable everyday shoes"},{"id":3,"name":"Sport","description":"Athletic and training shoes"},{"id":4,"name":"Fashion","description":"Trendy and stylish shoes"}]
+        
+DEBUG 2025-01-01 21:50:39,042 debug 21964 23448 
+REQUEST: GET /api/products/
+Headers: {'Content-Length': '', 'Content-Type': 'application/json', 'User-Agent': 'Dart/3.6 (dart:io)', 'Accept': 'application/json', 'Accept-Encoding': 'gzip', 'Host': '10.0.2.2:8000'}
+Query Params: {}
+Body: Could not parse request body
+        
+DEBUG 2025-01-01 21:50:39,042 debug 21964 23448 Fetching products - Extra: {"params": {}}
+DEBUG 2025-01-01 21:50:39,042 debug 21964 23448 Filtering products - Extra: {"category": null, "min_price": null, "max_price": null, "brand": null}
+DEBUG 2025-01-01 21:50:39,044 debug 21964 25184 
+REQUEST: GET /api/categories/
+Headers: {'Content-Length': '', 'Content-Type': 'application/json', 'User-Agent': 'Dart/3.6 (dart:io)', 'Accept': 'application/json', 'Accept-Encoding': 'gzip', 'Host': '10.0.2.2:8000'}
+Query Params: {}
+Body: Could not parse request body
+        
+DEBUG 2025-01-01 21:50:39,045 debug 21964 25184 Fetching categories - Extra: {"user": "anonymous"}
+DEBUG 2025-01-01 21:50:39,049 debug 21964 25184 
+RESPONSE: GET /api/categories/
+Status: 200
+Content: [{"id":1,"name":"Running","description":"High-performance running shoes"},{"id":2,"name":"Casual","description":"Comfortable everyday shoes"},{"id":3,"name":"Sport","description":"Athletic and training shoes"},{"id":4,"name":"Fashion","description":"Trendy and stylish shoes"}]
+        
+DEBUG 2025-01-01 21:50:39,064 debug 21964 23448 
+RESPONSE: GET /api/products/
+Status: 200
+Content: [{"id":"1","name":"PandaSpeed Runner","description":"Lightweight running shoes with superior cushioning","price":129.99,"imageUrl":"https://images.unsplash.com/photo-1542291026-7eec264c27ff","sizes":["40","41","42"],"category":"Running","brand":"PandaShoes","colors":["Black"],"rating":0.0,"reviewCount":0},{"id":"2","name":"Urban Panda Casual","description":"Stylish and comfortable casual shoes","price":89.99,"imageUrl":"https://images.unsplash.com/photo-1542291026-7eec264c27ff","sizes":["39","40","41"],"category":"Casual","brand":"PandaShoes","colors":["Black"],"rating":0.0,"reviewCount":0},{"id":"3","name":"PandaFlex Training","description":"Versatile training shoes for gym and sports","price":109.99,"imageUrl":"https://images.unsplash.com/photo-1542291026-7eec264c27ff","sizes":["40","41","42"],"category":"Sport","brand":"PandaShoes","colors":["Black"],"rating":0.0,"reviewCount":0},{"id":"4","name":"Panda Fashion Elite","description":"Premium fashion sneakers for the style-conscious","price":149.99,"imageUrl":"https://images.unsplash.com/photo-1542291026-7eec264c27ff","sizes":["38","39","40"],"category":"Fashion","brand":"PandaShoes","colors":["Black"],"rating":0.0,"reviewCount":0},{"id":"5","name":"PandaAir Boost","description":"Advanced cushioning technology for long-distance running","price":159.99,"imageUrl":"https://images.unsplash.com/photo-1542291026-7eec264c27ff","sizes":["41","42","43"],"category":"Running","brand":"PandaShoes","colors":["Black"],"rating":0.0,"reviewCount":0}]
+        
+DEBUG 2025-01-01 21:52:46,045 debug 20008 7288 
+REQUEST: GET /api/products/
+Headers: {'Content-Length': '', 'Content-Type': 'application/json', 'User-Agent': 'Dart/3.6 (dart:io)', 'Accept': 'application/json', 'Accept-Encoding': 'gzip', 'Host': '10.0.2.2:8000'}
+Query Params: {}
+Body: Could not parse request body
+        
+DEBUG 2025-01-01 21:52:46,045 debug 20008 12688 
+REQUEST: GET /api/categories/
+Headers: {'Content-Length': '', 'Content-Type': 'application/json', 'User-Agent': 'Dart/3.6 (dart:io)', 'Accept': 'application/json', 'Accept-Encoding': 'gzip', 'Host': '10.0.2.2:8000'}
+Query Params: {}
+Body: Could not parse request body
+        
+DEBUG 2025-01-01 21:52:46,046 debug 20008 7288 Fetching products - Extra: {"params": {}}
+DEBUG 2025-01-01 21:52:46,047 debug 20008 12688 Fetching categories - Extra: {"user": "anonymous"}
+DEBUG 2025-01-01 21:52:46,047 debug 20008 7288 Filtering products - Extra: {"category": null, "min_price": null, "max_price": null, "brand": null}
+DEBUG 2025-01-01 21:52:46,061 debug 20008 12688 
+RESPONSE: GET /api/categories/
+Status: 200
+Content: [{"id":1,"name":"Running","description":"High-performance running shoes"},{"id":2,"name":"Casual","description":"Comfortable everyday shoes"},{"id":3,"name":"Sport","description":"Athletic and training shoes"},{"id":4,"name":"Fashion","description":"Trendy and stylish shoes"}]
+        
+DEBUG 2025-01-01 21:52:46,075 debug 20008 7288 
+RESPONSE: GET /api/products/
+Status: 200
+Content: [{"id":"1","name":"PandaSpeed Runner","description":"Lightweight running shoes with superior cushioning","price":129.99,"imageUrl":"https://images.unsplash.com/photo-1542291026-7eec264c27ff","sizes":["40","41","42"],"category":"Running","brand":"PandaShoes","colors":["Black"],"rating":0.0,"reviewCount":0},{"id":"2","name":"Urban Panda Casual","description":"Stylish and comfortable casual shoes","price":89.99,"imageUrl":"https://images.unsplash.com/photo-1542291026-7eec264c27ff","sizes":["39","40","41"],"category":"Casual","brand":"PandaShoes","colors":["Black"],"rating":0.0,"reviewCount":0},{"id":"3","name":"PandaFlex Training","description":"Versatile training shoes for gym and sports","price":109.99,"imageUrl":"https://images.unsplash.com/photo-1542291026-7eec264c27ff","sizes":["40","41","42"],"category":"Sport","brand":"PandaShoes","colors":["Black"],"rating":0.0,"reviewCount":0},{"id":"4","name":"Panda Fashion Elite","description":"Premium fashion sneakers for the style-conscious","price":149.99,"imageUrl":"https://images.unsplash.com/photo-1542291026-7eec264c27ff","sizes":["38","39","40"],"category":"Fashion","brand":"PandaShoes","colors":["Black"],"rating":0.0,"reviewCount":0},{"id":"5","name":"PandaAir Boost","description":"Advanced cushioning technology for long-distance running","price":159.99,"imageUrl":"https://images.unsplash.com/photo-1542291026-7eec264c27ff","sizes":["41","42","43"],"category":"Running","brand":"PandaShoes","colors":["Black"],"rating":0.0,"reviewCount":0}]
+        
+DEBUG 2025-01-01 21:52:48,684 debug 20008 14288 
+REQUEST: GET /api/products/
+Headers: {'Content-Length': '', 'Content-Type': 'application/json', 'User-Agent': 'Dart/3.6 (dart:io)', 'Accept': 'application/json', 'Accept-Encoding': 'gzip', 'Host': '10.0.2.2:8000'}
+Query Params: {'category': ['1']}
+Body: Could not parse request body
+        
+DEBUG 2025-01-01 21:52:48,684 debug 20008 14288 Fetching products - Extra: {"params": {"category": ["1"]}}
+DEBUG 2025-01-01 21:52:48,685 debug 20008 14288 Filtering products - Extra: {"category": "1", "min_price": null, "max_price": null, "brand": null}
+DEBUG 2025-01-01 21:52:48,687 debug 20008 15764 
+REQUEST: GET /api/categories/
+Headers: {'Content-Length': '', 'Content-Type': 'application/json', 'User-Agent': 'Dart/3.6 (dart:io)', 'Accept': 'application/json', 'Accept-Encoding': 'gzip', 'Host': '10.0.2.2:8000'}
+Query Params: {}
+Body: Could not parse request body
+        
+DEBUG 2025-01-01 21:52:48,689 debug 20008 15764 Fetching categories - Extra: {"user": "anonymous"}
+DEBUG 2025-01-01 21:52:48,692 debug 20008 15764 
+RESPONSE: GET /api/categories/
+Status: 200
+Content: [{"id":1,"name":"Running","description":"High-performance running shoes"},{"id":2,"name":"Casual","description":"Comfortable everyday shoes"},{"id":3,"name":"Sport","description":"Athletic and training shoes"},{"id":4,"name":"Fashion","description":"Trendy and stylish shoes"}]
+        
+DEBUG 2025-01-01 21:52:48,698 debug 20008 14288 
+RESPONSE: GET /api/products/
+Status: 200
+Content: [{"id":"1","name":"PandaSpeed Runner","description":"Lightweight running shoes with superior cushioning","price":129.99,"imageUrl":"https://images.unsplash.com/photo-1542291026-7eec264c27ff","sizes":["40","41","42"],"category":"Running","brand":"PandaShoes","colors":["Black"],"rating":0.0,"reviewCount":0},{"id":"5","name":"PandaAir Boost","description":"Advanced cushioning technology for long-distance running","price":159.99,"imageUrl":"https://images.unsplash.com/photo-1542291026-7eec264c27ff","sizes":["41","42","43"],"category":"Running","brand":"PandaShoes","colors":["Black"],"rating":0.0,"reviewCount":0}]
+        
+DEBUG 2025-01-01 21:52:54,282 debug 20008 11076 
+REQUEST: GET /api/products/
+Headers: {'Content-Length': '', 'Content-Type': 'application/json', 'User-Agent': 'Dart/3.6 (dart:io)', 'Accept': 'application/json', 'Accept-Encoding': 'gzip', 'Host': '10.0.2.2:8000'}
+Query Params: {}
+Body: Could not parse request body
+        
+DEBUG 2025-01-01 21:52:54,282 debug 20008 11076 Fetching products - Extra: {"params": {}}
+DEBUG 2025-01-01 21:52:54,283 debug 20008 11076 Filtering products - Extra: {"category": null, "min_price": null, "max_price": null, "brand": null}
+DEBUG 2025-01-01 21:52:54,284 debug 20008 14224 
+REQUEST: GET /api/categories/
+Headers: {'Content-Length': '', 'Content-Type': 'application/json', 'User-Agent': 'Dart/3.6 (dart:io)', 'Accept': 'application/json', 'Accept-Encoding': 'gzip', 'Host': '10.0.2.2:8000'}
+Query Params: {}
+Body: Could not parse request body
+        
+DEBUG 2025-01-01 21:52:54,285 debug 20008 14224 Fetching categories - Extra: {"user": "anonymous"}
+DEBUG 2025-01-01 21:52:54,290 debug 20008 14224 
+RESPONSE: GET /api/categories/
+Status: 200
+Content: [{"id":1,"name":"Running","description":"High-performance running shoes"},{"id":2,"name":"Casual","description":"Comfortable everyday shoes"},{"id":3,"name":"Sport","description":"Athletic and training shoes"},{"id":4,"name":"Fashion","description":"Trendy and stylish shoes"}]
+        
+DEBUG 2025-01-01 21:52:54,301 debug 20008 11076 
+RESPONSE: GET /api/products/
+Status: 200
+Content: [{"id":"1","name":"PandaSpeed Runner","description":"Lightweight running shoes with superior cushioning","price":129.99,"imageUrl":"https://images.unsplash.com/photo-1542291026-7eec264c27ff","sizes":["40","41","42"],"category":"Running","brand":"PandaShoes","colors":["Black"],"rating":0.0,"reviewCount":0},{"id":"2","name":"Urban Panda Casual","description":"Stylish and comfortable casual shoes","price":89.99,"imageUrl":"https://images.unsplash.com/photo-1542291026-7eec264c27ff","sizes":["39","40","41"],"category":"Casual","brand":"PandaShoes","colors":["Black"],"rating":0.0,"reviewCount":0},{"id":"3","name":"PandaFlex Training","description":"Versatile training shoes for gym and sports","price":109.99,"imageUrl":"https://images.unsplash.com/photo-1542291026-7eec264c27ff","sizes":["40","41","42"],"category":"Sport","brand":"PandaShoes","colors":["Black"],"rating":0.0,"reviewCount":0},{"id":"4","name":"Panda Fashion Elite","description":"Premium fashion sneakers for the style-conscious","price":149.99,"imageUrl":"https://images.unsplash.com/photo-1542291026-7eec264c27ff","sizes":["38","39","40"],"category":"Fashion","brand":"PandaShoes","colors":["Black"],"rating":0.0,"reviewCount":0},{"id":"5","name":"PandaAir Boost","description":"Advanced cushioning technology for long-distance running","price":159.99,"imageUrl":"https://images.unsplash.com/photo-1542291026-7eec264c27ff","sizes":["41","42","43"],"category":"Running","brand":"PandaShoes","colors":["Black"],"rating":0.0,"reviewCount":0}]
+        
+DEBUG 2025-01-01 21:53:11,053 debug 20008 23600 
+REQUEST: GET /api/products/
+Headers: {'Content-Length': '', 'Content-Type': 'application/json', 'User-Agent': 'Dart/3.6 (dart:io)', 'Accept': 'application/json', 'Accept-Encoding': 'gzip', 'Host': '10.0.2.2:8000'}
+Query Params: {'category': ['1']}
+Body: Could not parse request body
+        
+DEBUG 2025-01-01 21:53:11,054 debug 20008 23600 Fetching products - Extra: {"params": {"category": ["1"]}}
+DEBUG 2025-01-01 21:53:11,054 debug 20008 23600 Filtering products - Extra: {"category": "1", "min_price": null, "max_price": null, "brand": null}
+DEBUG 2025-01-01 21:53:11,057 debug 20008 18664 
+REQUEST: GET /api/categories/
+Headers: {'Content-Length': '', 'Content-Type': 'application/json', 'User-Agent': 'Dart/3.6 (dart:io)', 'Accept': 'application/json', 'Accept-Encoding': 'gzip', 'Host': '10.0.2.2:8000'}
+Query Params: {}
+Body: Could not parse request body
+        
+DEBUG 2025-01-01 21:53:11,059 debug 20008 18664 Fetching categories - Extra: {"user": "anonymous"}
+DEBUG 2025-01-01 21:53:11,064 debug 20008 18664 
+RESPONSE: GET /api/categories/
+Status: 200
+Content: [{"id":1,"name":"Running","description":"High-performance running shoes"},{"id":2,"name":"Casual","description":"Comfortable everyday shoes"},{"id":3,"name":"Sport","description":"Athletic and training shoes"},{"id":4,"name":"Fashion","description":"Trendy and stylish shoes"}]
+        
+DEBUG 2025-01-01 21:53:11,066 debug 20008 23600 
+RESPONSE: GET /api/products/
+Status: 200
+Content: [{"id":"1","name":"PandaSpeed Runner","description":"Lightweight running shoes with superior cushioning","price":129.99,"imageUrl":"https://images.unsplash.com/photo-1542291026-7eec264c27ff","sizes":["40","41","42"],"category":"Running","brand":"PandaShoes","colors":["Black"],"rating":0.0,"reviewCount":0},{"id":"5","name":"PandaAir Boost","description":"Advanced cushioning technology for long-distance running","price":159.99,"imageUrl":"https://images.unsplash.com/photo-1542291026-7eec264c27ff","sizes":["41","42","43"],"category":"Running","brand":"PandaShoes","colors":["Black"],"rating":0.0,"reviewCount":0}]
+        
+DEBUG 2025-01-01 21:53:12,850 debug 20008 5700 
+REQUEST: GET /api/products/
+Headers: {'Content-Length': '', 'Content-Type': 'application/json', 'User-Agent': 'Dart/3.6 (dart:io)', 'Accept': 'application/json', 'Accept-Encoding': 'gzip', 'Host': '10.0.2.2:8000'}
+Query Params: {'category': ['2']}
+Body: Could not parse request body
+        
+DEBUG 2025-01-01 21:53:12,851 debug 20008 5700 Fetching products - Extra: {"params": {"category": ["2"]}}
+DEBUG 2025-01-01 21:53:12,851 debug 20008 5700 Filtering products - Extra: {"category": "2", "min_price": null, "max_price": null, "brand": null}
+DEBUG 2025-01-01 21:53:12,859 debug 20008 17148 
+REQUEST: GET /api/categories/
+Headers: {'Content-Length': '', 'Content-Type': 'application/json', 'User-Agent': 'Dart/3.6 (dart:io)', 'Accept': 'application/json', 'Accept-Encoding': 'gzip', 'Host': '10.0.2.2:8000'}
+Query Params: {}
+Body: Could not parse request body
+        
+DEBUG 2025-01-01 21:53:12,860 debug 20008 17148 Fetching categories - Extra: {"user": "anonymous"}
+DEBUG 2025-01-01 21:53:12,862 debug 20008 5700 
+RESPONSE: GET /api/products/
+Status: 200
+Content: [{"id":"2","name":"Urban Panda Casual","description":"Stylish and comfortable casual shoes","price":89.99,"imageUrl":"https://images.unsplash.com/photo-1542291026-7eec264c27ff","sizes":["39","40","41"],"category":"Casual","brand":"PandaShoes","colors":["Black"],"rating":0.0,"reviewCount":0}]
+        
+DEBUG 2025-01-01 21:53:12,864 debug 20008 17148 
+RESPONSE: GET /api/categories/
+Status: 200
+Content: [{"id":1,"name":"Running","description":"High-performance running shoes"},{"id":2,"name":"Casual","description":"Comfortable everyday shoes"},{"id":3,"name":"Sport","description":"Athletic and training shoes"},{"id":4,"name":"Fashion","description":"Trendy and stylish shoes"}]
+        
+DEBUG 2025-01-01 21:53:14,755 debug 20008 24860 
+REQUEST: GET /api/products/
+Headers: {'Content-Length': '', 'Content-Type': 'application/json', 'User-Agent': 'Dart/3.6 (dart:io)', 'Accept': 'application/json', 'Accept-Encoding': 'gzip', 'Host': '10.0.2.2:8000'}
+Query Params: {'category': ['3']}
+Body: Could not parse request body
+        
+DEBUG 2025-01-01 21:53:14,755 debug 20008 24860 Fetching products - Extra: {"params": {"category": ["3"]}}
+DEBUG 2025-01-01 21:53:14,756 debug 20008 24860 Filtering products - Extra: {"category": "3", "min_price": null, "max_price": null, "brand": null}
+DEBUG 2025-01-01 21:53:14,760 debug 20008 13568 
+REQUEST: GET /api/categories/
+Headers: {'Content-Length': '', 'Content-Type': 'application/json', 'User-Agent': 'Dart/3.6 (dart:io)', 'Accept': 'application/json', 'Accept-Encoding': 'gzip', 'Host': '10.0.2.2:8000'}
+Query Params: {}
+Body: Could not parse request body
+        
+DEBUG 2025-01-01 21:53:14,760 debug 20008 13568 Fetching categories - Extra: {"user": "anonymous"}
+DEBUG 2025-01-01 21:53:14,766 debug 20008 13568 
+RESPONSE: GET /api/categories/
+Status: 200
+Content: [{"id":1,"name":"Running","description":"High-performance running shoes"},{"id":2,"name":"Casual","description":"Comfortable everyday shoes"},{"id":3,"name":"Sport","description":"Athletic and training shoes"},{"id":4,"name":"Fashion","description":"Trendy and stylish shoes"}]
+        
+DEBUG 2025-01-01 21:53:14,770 debug 20008 24860 
+RESPONSE: GET /api/products/
+Status: 200
+Content: [{"id":"3","name":"PandaFlex Training","description":"Versatile training shoes for gym and sports","price":109.99,"imageUrl":"https://images.unsplash.com/photo-1542291026-7eec264c27ff","sizes":["40","41","42"],"category":"Sport","brand":"PandaShoes","colors":["Black"],"rating":0.0,"reviewCount":0}]
+        
+DEBUG 2025-01-01 21:53:16,770 debug 20008 13388 
+REQUEST: GET /api/products/
+Headers: {'Content-Length': '', 'Content-Type': 'application/json', 'User-Agent': 'Dart/3.6 (dart:io)', 'Accept': 'application/json', 'Accept-Encoding': 'gzip', 'Host': '10.0.2.2:8000'}
+Query Params: {}
+Body: Could not parse request body
+        
+DEBUG 2025-01-01 21:53:16,770 debug 20008 13388 Fetching products - Extra: {"params": {}}
+DEBUG 2025-01-01 21:53:16,771 debug 20008 13388 Filtering products - Extra: {"category": null, "min_price": null, "max_price": null, "brand": null}
+DEBUG 2025-01-01 21:53:16,777 debug 20008 6024 
+REQUEST: GET /api/categories/
+Headers: {'Content-Length': '', 'Content-Type': 'application/json', 'User-Agent': 'Dart/3.6 (dart:io)', 'Accept': 'application/json', 'Accept-Encoding': 'gzip', 'Host': '10.0.2.2:8000'}
+Query Params: {}
+Body: Could not parse request body
+        
+DEBUG 2025-01-01 21:53:16,779 debug 20008 6024 Fetching categories - Extra: {"user": "anonymous"}
+DEBUG 2025-01-01 21:53:16,785 debug 20008 6024 
+RESPONSE: GET /api/categories/
+Status: 200
+Content: [{"id":1,"name":"Running","description":"High-performance running shoes"},{"id":2,"name":"Casual","description":"Comfortable everyday shoes"},{"id":3,"name":"Sport","description":"Athletic and training shoes"},{"id":4,"name":"Fashion","description":"Trendy and stylish shoes"}]
+        
+DEBUG 2025-01-01 21:53:16,795 debug 20008 13388 
+RESPONSE: GET /api/products/
+Status: 200
+Content: [{"id":"1","name":"PandaSpeed Runner","description":"Lightweight running shoes with superior cushioning","price":129.99,"imageUrl":"https://images.unsplash.com/photo-1542291026-7eec264c27ff","sizes":["40","41","42"],"category":"Running","brand":"PandaShoes","colors":["Black"],"rating":0.0,"reviewCount":0},{"id":"2","name":"Urban Panda Casual","description":"Stylish and comfortable casual shoes","price":89.99,"imageUrl":"https://images.unsplash.com/photo-1542291026-7eec264c27ff","sizes":["39","40","41"],"category":"Casual","brand":"PandaShoes","colors":["Black"],"rating":0.0,"reviewCount":0},{"id":"3","name":"PandaFlex Training","description":"Versatile training shoes for gym and sports","price":109.99,"imageUrl":"https://images.unsplash.com/photo-1542291026-7eec264c27ff","sizes":["40","41","42"],"category":"Sport","brand":"PandaShoes","colors":["Black"],"rating":0.0,"reviewCount":0},{"id":"4","name":"Panda Fashion Elite","description":"Premium fashion sneakers for the style-conscious","price":149.99,"imageUrl":"https://images.unsplash.com/photo-1542291026-7eec264c27ff","sizes":["38","39","40"],"category":"Fashion","brand":"PandaShoes","colors":["Black"],"rating":0.0,"reviewCount":0},{"id":"5","name":"PandaAir Boost","description":"Advanced cushioning technology for long-distance running","price":159.99,"imageUrl":"https://images.unsplash.com/photo-1542291026-7eec264c27ff","sizes":["41","42","43"],"category":"Running","brand":"PandaShoes","colors":["Black"],"rating":0.0,"reviewCount":0}]
+        

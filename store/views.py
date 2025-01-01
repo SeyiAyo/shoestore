@@ -65,7 +65,7 @@ class ProductViewSet(viewsets.ModelViewSet):
             })
 
             if category:
-                queryset = queryset.filter(category__name=category)
+                queryset = queryset.filter(category_id=category)
             if min_price:
                 queryset = queryset.filter(price__gte=min_price)
             if max_price:
