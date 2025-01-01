@@ -1,0 +1,1702 @@
+DEBUG 2025-01-01 21:30:23,990 debug 740 21340 
+REQUEST: GET /api/
+Headers: {'Content-Length': '', 'Content-Type': 'text/plain', 'Host': '127.0.0.1:8000', 'Connection': 'keep-alive', 'Sec-Ch-Ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"', 'Sec-Ch-Ua-Mobile': '?0', 'Sec-Ch-Ua-Platform': '"Windows"', 'Upgrade-Insecure-Requests': '1', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7', 'Sec-Fetch-Site': 'same-origin', 'Sec-Fetch-Mode': 'navigate', 'Sec-Fetch-User': '?1', 'Sec-Fetch-Dest': 'document', 'Referer': 'http://127.0.0.1:8000/api/categories/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'en-US,en;q=0.9', 'Cookie': 'csrftoken=7jbv8mUHNwQURqByOqzqwoVRQv9EOS7G; sessionid=adii6nqbm2gsypm5kq8tdd8qg9y8tjc3'}
+Query Params: {}
+Body: <QueryDict: {}>
+        
+DEBUG 2025-01-01 21:30:24,055 debug 740 21340 
+RESPONSE: GET /api/
+Status: 200
+Content: 
+
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+
+      
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta name="robots" content="NONE,NOARCHIVE" />
+      
+
+      <title>Api Root – Django REST framework</title>
+
+      
+        
+          <link rel="stylesheet" type="text/css" href="/static/rest_framework/css/bootstrap.min.css"/>
+          <link rel="stylesheet" type="text/css" href="/static/rest_framework/css/bootstrap-tweaks.css"/>
+        
+
+        <link rel="stylesheet" type="text/css" href="/static/rest_framework/css/prettify.css"/>
+        <link rel="stylesheet" type="text/css" href="/static/rest_framework/css/default.css"/>
+        
+      
+
+    
+  </head>
+
+  
+  <body class="">
+
+    <div class="wrapper">
+      
+        <div class="navbar navbar-static-top navbar-inverse"
+             role="navigation" aria-label="navbar">
+          <div class="container">
+            <span>
+              
+                <a class='navbar-brand' rel="nofollow" href='https://www.django-rest-framework.org/'>
+                    Django REST framework
+                </a>
+              
+            </span>
+            <ul class="nav navbar-nav pull-right">
+              
+                
+                  
+                
+              
+            </ul>
+          </div>
+        </div>
+      
+
+      <div class="container">
+        
+          <ul class="breadcrumb">
+            
+              
+                <li class="active"><a href="/api/">Api Root</a></li>
+              
+            
+          </ul>
+        
+
+        <!-- Content -->
+        <div id="content" role="main" aria-label="content">
+          
+
+          <div class="region"  aria-label="request form">
+          
+
+          
+            <form id="get-form" class="pull-right">
+              <fieldset>
+                
+                  <div class="btn-group format-selection">
+                    <a class="btn btn-primary js-tooltip" href="/api/" rel="nofollow" title="Make a GET request on the Api Root resource">GET</a>
+
+                    <button class="btn btn-primary dropdown-toggle js-tooltip" data-toggle="dropdown" title="Specify a format for the GET request">
+                      <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                      
+                        <li>
+                          <a class="js-tooltip format-option" href="/api/?format=json" rel="nofollow" title="Make a GET request on the Api Root resource with the format set to `json`">json</a>
+                        </li>
+                      
+                        <li>
+                          <a class="js-tooltip format-option" href="/api/?format=api" rel="nofollow" title="Make a GET request on the Api Root resource with the format set to `api`">api</a>
+                        </li>
+                      
+                    </ul>
+                  </div>
+                
+              </fieldset>
+            </form>
+          
+
+          
+            <form class="button-form" action="/api/" data-method="OPTIONS">
+              <button class="btn btn-primary js-tooltip" title="Make an OPTIONS request on the Api Root resource">OPTIONS</button>
+            </form>
+          
+
+          
+
+          
+
+          
+
+          
+          </div>
+
+            <div class="content-main" role="main"  aria-label="main content">
+              <div class="page-header">
+                <h1>Api Root</h1>
+              </div>
+              <div class="pull-left">
+                
+                  <p>The default basic root view for DefaultRouter</p>
+                
+              </div>
+
+              
+
+              <div class="request-info" aria-label="request info">
+                <pre class="prettyprint"><b>GET</b> /api/</pre>
+              </div>
+
+              <div class="response-info" aria-label="response info">
+                <pre class="prettyprint"><span class="meta nocode"><b>HTTP 200 OK</b>
+<b>Allow:</b> <span class="lit">GET, HEAD, OPTIONS</span>
+<b>Content-Type:</b> <span class="lit">application/json</span>
+<b>Vary:</b> <span class="lit">Accept</span>
+
+</span>{
+    &quot;categories&quot;: &quot;<a href="http://127.0.0.1:8000/api/categories/" rel="nofollow">http://127.0.0.1:8000/api/categories/</a>&quot;,
+    &quot;products&quot;: &quot;<a href="http://127.0.0.1:8000/api/products/" rel="nofollow">http://127.0.0.1:8000/api/products/</a>&quot;,
+    &quot;orders&quot;: &quot;<a href="http://127.0.0.1:8000/api/orders/" rel="nofollow">http://127.0.0.1:8000/api/orders/</a>&quot;
+}</pre>
+              </div>
+            </div>
+
+            
+              
+
+              
+            
+          
+        </div><!-- /.content -->
+      </div><!-- /.container -->
+    </div><!-- ./wrapper -->
+
+    
+
+    
+      <script type="application/json" id="drf_csrf">
+        {
+          "csrfHeaderName": "X-CSRFTOKEN",
+          "csrfToken": "SMFZGiTS00RzKCv41OHv9lOtrX8T0IdgPVGkEuDpDmxjrSWsF46Lvzza7i7nEqaM"
+        }
+      </script>
+      <script src="/static/rest_framework/js/jquery-3.7.1.min.js"></script>
+      <script src="/static/rest_framework/js/ajax-form.js"></script>
+      <script src="/static/rest_framework/js/csrf.js"></script>
+      <script src="/static/rest_framework/js/bootstrap.min.js"></script>
+      <script src="/static/rest_framework/js/prettify-min.js"></script>
+      <script src="/static/rest_framework/js/default.js"></script>
+      <script src="/static/rest_framework/js/load-ajax-form.js"></script>
+    
+
+  </body>
+  
+</html>
+
+        
+DEBUG 2025-01-01 21:30:26,034 debug 740 5160 
+REQUEST: GET /api/products/
+Headers: {'Content-Length': '', 'Content-Type': 'text/plain', 'Host': '127.0.0.1:8000', 'Connection': 'keep-alive', 'Sec-Ch-Ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"', 'Sec-Ch-Ua-Mobile': '?0', 'Sec-Ch-Ua-Platform': '"Windows"', 'Upgrade-Insecure-Requests': '1', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7', 'Sec-Fetch-Site': 'same-origin', 'Sec-Fetch-Mode': 'navigate', 'Sec-Fetch-User': '?1', 'Sec-Fetch-Dest': 'document', 'Referer': 'http://127.0.0.1:8000/api/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'en-US,en;q=0.9', 'Cookie': 'csrftoken=7jbv8mUHNwQURqByOqzqwoVRQv9EOS7G; sessionid=adii6nqbm2gsypm5kq8tdd8qg9y8tjc3'}
+Query Params: {}
+Body: <QueryDict: {}>
+        
+DEBUG 2025-01-01 21:30:26,035 debug 740 5160 Fetching products - Extra: {"params": {}}
+DEBUG 2025-01-01 21:30:26,035 debug 740 5160 Filtering products - Extra: {"category": null, "min_price": null, "max_price": null, "brand": null}
+DEBUG 2025-01-01 21:30:26,052 debug 740 5160 Filtering products - Extra: {"category": null, "min_price": null, "max_price": null, "brand": null}
+DEBUG 2025-01-01 21:30:26,058 debug 740 5160 
+RESPONSE: GET /api/products/
+Status: 200
+Content: 
+
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+
+      
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta name="robots" content="NONE,NOARCHIVE" />
+      
+
+      <title>Product List – Django REST framework</title>
+
+      
+        
+          <link rel="stylesheet" type="text/css" href="/static/rest_framework/css/bootstrap.min.css"/>
+          <link rel="stylesheet" type="text/css" href="/static/rest_framework/css/bootstrap-tweaks.css"/>
+        
+
+        <link rel="stylesheet" type="text/css" href="/static/rest_framework/css/prettify.css"/>
+        <link rel="stylesheet" type="text/css" href="/static/rest_framework/css/default.css"/>
+        
+      
+
+    
+  </head>
+
+  
+  <body class="">
+
+    <div class="wrapper">
+      
+        <div class="navbar navbar-static-top navbar-inverse"
+             role="navigation" aria-label="navbar">
+          <div class="container">
+            <span>
+              
+                <a class='navbar-brand' rel="nofollow" href='https://www.django-rest-framework.org/'>
+                    Django REST framework
+                </a>
+              
+            </span>
+            <ul class="nav navbar-nav pull-right">
+              
+                
+                  
+                
+              
+            </ul>
+          </div>
+        </div>
+      
+
+      <div class="container">
+        
+          <ul class="breadcrumb">
+            
+              
+                <li><a href="/api/">Api Root</a></li>
+              
+            
+              
+                <li class="active"><a href="/api/products/">Product List</a></li>
+              
+            
+          </ul>
+        
+
+        <!-- Content -->
+        <div id="content" role="main" aria-label="content">
+          
+
+          <div class="region"  aria-label="request form">
+          
+
+          
+            <form id="get-form" class="pull-right">
+              <fieldset>
+                
+                  <div class="btn-group format-selection">
+                    <a class="btn btn-primary js-tooltip" href="/api/products/" rel="nofollow" title="Make a GET request on the Product List resource">GET</a>
+
+                    <button class="btn btn-primary dropdown-toggle js-tooltip" data-toggle="dropdown" title="Specify a format for the GET request">
+                      <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                      
+                        <li>
+                          <a class="js-tooltip format-option" href="/api/products/?format=json" rel="nofollow" title="Make a GET request on the Product List resource with the format set to `json`">json</a>
+                        </li>
+                      
+                        <li>
+                          <a class="js-tooltip format-option" href="/api/products/?format=api" rel="nofollow" title="Make a GET request on the Product List resource with the format set to `api`">api</a>
+                        </li>
+                      
+                    </ul>
+                  </div>
+                
+              </fieldset>
+            </form>
+          
+
+          
+            <form class="button-form" action="/api/products/" data-method="OPTIONS">
+              <button class="btn btn-primary js-tooltip" title="Make an OPTIONS request on the Product List resource">OPTIONS</button>
+            </form>
+          
+
+          
+
+          
+
+          
+            <button style="float: right; margin-right: 10px" data-toggle="modal" data-target="#filtersModal" class="btn btn-default">
+              <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+              Filters
+            </button>
+          
+
+          
+          </div>
+
+            <div class="content-main" role="main"  aria-label="main content">
+              <div class="page-header">
+                <h1>Product List</h1>
+              </div>
+              <div class="pull-left">
+                
+                  
+                
+              </div>
+
+              
+
+              <div class="request-info" aria-label="request info">
+                <pre class="prettyprint"><b>GET</b> /api/products/</pre>
+              </div>
+
+              <div class="response-info" aria-label="response info">
+                <pre class="prettyprint"><span class="meta nocode"><b>HTTP 200 OK</b>
+<b>Allow:</b> <span class="lit">GET, POST, HEAD, OPTIONS</span>
+<b>Content-Type:</b> <span class="lit">application/json</span>
+<b>Vary:</b> <span class="lit">Accept</span>
+
+</span>[
+    {
+        &quot;id&quot;: &quot;1&quot;,
+        &quot;name&quot;: &quot;PandaSpeed Runner&quot;,
+        &quot;description&quot;: &quot;Lightweight running shoes with superior cushioning&quot;,
+        &quot;price&quot;: 129.99,
+        &quot;imageUrl&quot;: &quot;<a href="https://images.unsplash.com/photo-1542291026-7eec264c27ff" rel="nofollow">https://images.unsplash.com/photo-1542291026-7eec264c27ff</a>&quot;,
+        &quot;sizes&quot;: [
+            &quot;40&quot;,
+            &quot;41&quot;,
+            &quot;42&quot;
+        ],
+        &quot;category&quot;: &quot;Running&quot;,
+        &quot;brand&quot;: &quot;PandaShoes&quot;,
+        &quot;colors&quot;: [
+            &quot;Black&quot;
+        ],
+        &quot;rating&quot;: 0.0,
+        &quot;reviewCount&quot;: 0
+    },
+    {
+        &quot;id&quot;: &quot;2&quot;,
+        &quot;name&quot;: &quot;Urban Panda Casual&quot;,
+        &quot;description&quot;: &quot;Stylish and comfortable casual shoes&quot;,
+        &quot;price&quot;: 89.99,
+        &quot;imageUrl&quot;: &quot;<a href="https://images.unsplash.com/photo-1542291026-7eec264c27ff" rel="nofollow">https://images.unsplash.com/photo-1542291026-7eec264c27ff</a>&quot;,
+        &quot;sizes&quot;: [
+            &quot;39&quot;,
+            &quot;40&quot;,
+            &quot;41&quot;
+        ],
+        &quot;category&quot;: &quot;Casual&quot;,
+        &quot;brand&quot;: &quot;PandaShoes&quot;,
+        &quot;colors&quot;: [
+            &quot;Black&quot;
+        ],
+        &quot;rating&quot;: 0.0,
+        &quot;reviewCount&quot;: 0
+    },
+    {
+        &quot;id&quot;: &quot;3&quot;,
+        &quot;name&quot;: &quot;PandaFlex Training&quot;,
+        &quot;description&quot;: &quot;Versatile training shoes for gym and sports&quot;,
+        &quot;price&quot;: 109.99,
+        &quot;imageUrl&quot;: &quot;<a href="https://images.unsplash.com/photo-1542291026-7eec264c27ff" rel="nofollow">https://images.unsplash.com/photo-1542291026-7eec264c27ff</a>&quot;,
+        &quot;sizes&quot;: [
+            &quot;40&quot;,
+            &quot;41&quot;,
+            &quot;42&quot;
+        ],
+        &quot;category&quot;: &quot;Sport&quot;,
+        &quot;brand&quot;: &quot;PandaShoes&quot;,
+        &quot;colors&quot;: [
+            &quot;Black&quot;
+        ],
+        &quot;rating&quot;: 0.0,
+        &quot;reviewCount&quot;: 0
+    },
+    {
+        &quot;id&quot;: &quot;4&quot;,
+        &quot;name&quot;: &quot;Panda Fashion Elite&quot;,
+        &quot;description&quot;: &quot;Premium fashion sneakers for the style-conscious&quot;,
+        &quot;price&quot;: 149.99,
+        &quot;imageUrl&quot;: &quot;<a href="https://images.unsplash.com/photo-1542291026-7eec264c27ff" rel="nofollow">https://images.unsplash.com/photo-1542291026-7eec264c27ff</a>&quot;,
+        &quot;sizes&quot;: [
+            &quot;38&quot;,
+            &quot;39&quot;,
+            &quot;40&quot;
+        ],
+        &quot;category&quot;: &quot;Fashion&quot;,
+        &quot;brand&quot;: &quot;PandaShoes&quot;,
+        &quot;colors&quot;: [
+            &quot;Black&quot;
+        ],
+        &quot;rating&quot;: 0.0,
+        &quot;reviewCount&quot;: 0
+    },
+    {
+        &quot;id&quot;: &quot;5&quot;,
+        &quot;name&quot;: &quot;PandaAir Boost&quot;,
+        &quot;description&quot;: &quot;Advanced cushioning technology for long-distance running&quot;,
+        &quot;price&quot;: 159.99,
+        &quot;imageUrl&quot;: &quot;<a href="https://images.unsplash.com/photo-1542291026-7eec264c27ff" rel="nofollow">https://images.unsplash.com/photo-1542291026-7eec264c27ff</a>&quot;,
+        &quot;sizes&quot;: [
+            &quot;41&quot;,
+            &quot;42&quot;,
+            &quot;43&quot;
+        ],
+        &quot;category&quot;: &quot;Running&quot;,
+        &quot;brand&quot;: &quot;PandaShoes&quot;,
+        &quot;colors&quot;: [
+            &quot;Black&quot;
+        ],
+        &quot;rating&quot;: 0.0,
+        &quot;reviewCount&quot;: 0
+    }
+]</pre>
+              </div>
+            </div>
+
+            
+              
+
+              
+            
+          
+        </div><!-- /.content -->
+      </div><!-- /.container -->
+    </div><!-- ./wrapper -->
+
+    
+      <div class="modal fade" id="filtersModal" tabindex="-1" role="dialog" aria-labelledby="filters" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Filters</h4>
+    </div>
+      <div class="modal-body">
+          
+          
+          
+<h2>Search</h2>
+<form class="form-inline">
+  <div class="form-group">
+    <div class="input-group">
+      <input type="text" class="form-control" style="width: 350px" name="search" value="">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search</button>
+      </span>
+    </div>
+  </div>
+</form>
+
+          
+          <hr/>
+          
+
+<h2>Ordering</h2>
+<div class="list-group">
+    
+        
+            <a href="/api/products/?ordering=price" class="list-group-item">price - ascending</a>
+        
+    
+        
+            <a href="/api/products/?ordering=-price" class="list-group-item">price - descending</a>
+        
+    
+        
+            <a href="/api/products/?ordering=created_at" class="list-group-item">created_at - ascending</a>
+        
+    
+        
+            <a href="/api/products/?ordering=-created_at" class="list-group-item">created_at - descending</a>
+        
+    
+        
+            <a href="/api/products/?ordering=rating" class="list-group-item">rating - ascending</a>
+        
+    
+        
+            <a href="/api/products/?ordering=-rating" class="list-group-item">rating - descending</a>
+        
+    
+</div>
+
+          
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+      <script type="application/json" id="drf_csrf">
+        {
+          "csrfHeaderName": "X-CSRFTOKEN",
+          "csrfToken": "mpV1SQlpI3yitr1EZCeBd8Bi38oBMdh7jyWmQ25Wlpe2aHs2DSDRzmmZJtn5qVeD"
+        }
+      </script>
+      <script src="/static/rest_framework/js/jquery-3.7.1.min.js"></script>
+      <script src="/static/rest_framework/js/ajax-form.js"></script>
+      <script src="/static/rest_framework/js/csrf.js"></script>
+      <script src="/static/rest_framework/js/bootstrap.min.js"></script>
+      <script src="/static/rest_framework/js/prettify-min.js"></script>
+      <script src="/static/rest_framework/js/default.js"></script>
+      <script src="/static/rest_framework/js/load-ajax-form.js"></script>
+    
+
+  </body>
+  
+</html>
+
+        
+DEBUG 2025-01-01 21:30:35,303 debug 740 5160 
+REQUEST: GET /api/
+Headers: {'Content-Length': '', 'Content-Type': 'text/plain', 'Host': '127.0.0.1:8000', 'Connection': 'keep-alive', 'Sec-Ch-Ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"', 'Sec-Ch-Ua-Mobile': '?0', 'Sec-Ch-Ua-Platform': '"Windows"', 'Upgrade-Insecure-Requests': '1', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7', 'Sec-Fetch-Site': 'same-origin', 'Sec-Fetch-Mode': 'navigate', 'Sec-Fetch-User': '?1', 'Sec-Fetch-Dest': 'document', 'Referer': 'http://127.0.0.1:8000/api/products/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'en-US,en;q=0.9', 'Cookie': 'csrftoken=7jbv8mUHNwQURqByOqzqwoVRQv9EOS7G; sessionid=adii6nqbm2gsypm5kq8tdd8qg9y8tjc3'}
+Query Params: {}
+Body: <QueryDict: {}>
+        
+DEBUG 2025-01-01 21:30:35,310 debug 740 5160 
+RESPONSE: GET /api/
+Status: 200
+Content: 
+
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+
+      
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta name="robots" content="NONE,NOARCHIVE" />
+      
+
+      <title>Api Root – Django REST framework</title>
+
+      
+        
+          <link rel="stylesheet" type="text/css" href="/static/rest_framework/css/bootstrap.min.css"/>
+          <link rel="stylesheet" type="text/css" href="/static/rest_framework/css/bootstrap-tweaks.css"/>
+        
+
+        <link rel="stylesheet" type="text/css" href="/static/rest_framework/css/prettify.css"/>
+        <link rel="stylesheet" type="text/css" href="/static/rest_framework/css/default.css"/>
+        
+      
+
+    
+  </head>
+
+  
+  <body class="">
+
+    <div class="wrapper">
+      
+        <div class="navbar navbar-static-top navbar-inverse"
+             role="navigation" aria-label="navbar">
+          <div class="container">
+            <span>
+              
+                <a class='navbar-brand' rel="nofollow" href='https://www.django-rest-framework.org/'>
+                    Django REST framework
+                </a>
+              
+            </span>
+            <ul class="nav navbar-nav pull-right">
+              
+                
+                  
+                
+              
+            </ul>
+          </div>
+        </div>
+      
+
+      <div class="container">
+        
+          <ul class="breadcrumb">
+            
+              
+                <li class="active"><a href="/api/">Api Root</a></li>
+              
+            
+          </ul>
+        
+
+        <!-- Content -->
+        <div id="content" role="main" aria-label="content">
+          
+
+          <div class="region"  aria-label="request form">
+          
+
+          
+            <form id="get-form" class="pull-right">
+              <fieldset>
+                
+                  <div class="btn-group format-selection">
+                    <a class="btn btn-primary js-tooltip" href="/api/" rel="nofollow" title="Make a GET request on the Api Root resource">GET</a>
+
+                    <button class="btn btn-primary dropdown-toggle js-tooltip" data-toggle="dropdown" title="Specify a format for the GET request">
+                      <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                      
+                        <li>
+                          <a class="js-tooltip format-option" href="/api/?format=json" rel="nofollow" title="Make a GET request on the Api Root resource with the format set to `json`">json</a>
+                        </li>
+                      
+                        <li>
+                          <a class="js-tooltip format-option" href="/api/?format=api" rel="nofollow" title="Make a GET request on the Api Root resource with the format set to `api`">api</a>
+                        </li>
+                      
+                    </ul>
+                  </div>
+                
+              </fieldset>
+            </form>
+          
+
+          
+            <form class="button-form" action="/api/" data-method="OPTIONS">
+              <button class="btn btn-primary js-tooltip" title="Make an OPTIONS request on the Api Root resource">OPTIONS</button>
+            </form>
+          
+
+          
+
+          
+
+          
+
+          
+          </div>
+
+            <div class="content-main" role="main"  aria-label="main content">
+              <div class="page-header">
+                <h1>Api Root</h1>
+              </div>
+              <div class="pull-left">
+                
+                  <p>The default basic root view for DefaultRouter</p>
+                
+              </div>
+
+              
+
+              <div class="request-info" aria-label="request info">
+                <pre class="prettyprint"><b>GET</b> /api/</pre>
+              </div>
+
+              <div class="response-info" aria-label="response info">
+                <pre class="prettyprint"><span class="meta nocode"><b>HTTP 200 OK</b>
+<b>Allow:</b> <span class="lit">GET, HEAD, OPTIONS</span>
+<b>Content-Type:</b> <span class="lit">application/json</span>
+<b>Vary:</b> <span class="lit">Accept</span>
+
+</span>{
+    &quot;categories&quot;: &quot;<a href="http://127.0.0.1:8000/api/categories/" rel="nofollow">http://127.0.0.1:8000/api/categories/</a>&quot;,
+    &quot;products&quot;: &quot;<a href="http://127.0.0.1:8000/api/products/" rel="nofollow">http://127.0.0.1:8000/api/products/</a>&quot;,
+    &quot;orders&quot;: &quot;<a href="http://127.0.0.1:8000/api/orders/" rel="nofollow">http://127.0.0.1:8000/api/orders/</a>&quot;
+}</pre>
+              </div>
+            </div>
+
+            
+              
+
+              
+            
+          
+        </div><!-- /.content -->
+      </div><!-- /.container -->
+    </div><!-- ./wrapper -->
+
+    
+
+    
+      <script type="application/json" id="drf_csrf">
+        {
+          "csrfHeaderName": "X-CSRFTOKEN",
+          "csrfToken": "JQ9XXqivAalCvknEFpSTIRmDEMnCvXCuGZaiVC22dw1mcAO2jFh9457kk7m69Fz0"
+        }
+      </script>
+      <script src="/static/rest_framework/js/jquery-3.7.1.min.js"></script>
+      <script src="/static/rest_framework/js/ajax-form.js"></script>
+      <script src="/static/rest_framework/js/csrf.js"></script>
+      <script src="/static/rest_framework/js/bootstrap.min.js"></script>
+      <script src="/static/rest_framework/js/prettify-min.js"></script>
+      <script src="/static/rest_framework/js/default.js"></script>
+      <script src="/static/rest_framework/js/load-ajax-form.js"></script>
+    
+
+  </body>
+  
+</html>
+
+        
+DEBUG 2025-01-01 21:30:37,179 debug 740 5160 
+REQUEST: GET /api/products/
+Headers: {'Content-Length': '', 'Content-Type': 'text/plain', 'Host': '127.0.0.1:8000', 'Connection': 'keep-alive', 'Sec-Ch-Ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"', 'Sec-Ch-Ua-Mobile': '?0', 'Sec-Ch-Ua-Platform': '"Windows"', 'Upgrade-Insecure-Requests': '1', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7', 'Sec-Fetch-Site': 'same-origin', 'Sec-Fetch-Mode': 'navigate', 'Sec-Fetch-User': '?1', 'Sec-Fetch-Dest': 'document', 'Referer': 'http://127.0.0.1:8000/api/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'en-US,en;q=0.9', 'Cookie': 'csrftoken=7jbv8mUHNwQURqByOqzqwoVRQv9EOS7G; sessionid=adii6nqbm2gsypm5kq8tdd8qg9y8tjc3'}
+Query Params: {}
+Body: <QueryDict: {}>
+        
+DEBUG 2025-01-01 21:30:37,180 debug 740 5160 Fetching products - Extra: {"params": {}}
+DEBUG 2025-01-01 21:30:37,181 debug 740 5160 Filtering products - Extra: {"category": null, "min_price": null, "max_price": null, "brand": null}
+DEBUG 2025-01-01 21:30:37,199 debug 740 5160 Filtering products - Extra: {"category": null, "min_price": null, "max_price": null, "brand": null}
+DEBUG 2025-01-01 21:30:37,214 debug 740 5160 
+RESPONSE: GET /api/products/
+Status: 200
+Content: 
+
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+
+      
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta name="robots" content="NONE,NOARCHIVE" />
+      
+
+      <title>Product List – Django REST framework</title>
+
+      
+        
+          <link rel="stylesheet" type="text/css" href="/static/rest_framework/css/bootstrap.min.css"/>
+          <link rel="stylesheet" type="text/css" href="/static/rest_framework/css/bootstrap-tweaks.css"/>
+        
+
+        <link rel="stylesheet" type="text/css" href="/static/rest_framework/css/prettify.css"/>
+        <link rel="stylesheet" type="text/css" href="/static/rest_framework/css/default.css"/>
+        
+      
+
+    
+  </head>
+
+  
+  <body class="">
+
+    <div class="wrapper">
+      
+        <div class="navbar navbar-static-top navbar-inverse"
+             role="navigation" aria-label="navbar">
+          <div class="container">
+            <span>
+              
+                <a class='navbar-brand' rel="nofollow" href='https://www.django-rest-framework.org/'>
+                    Django REST framework
+                </a>
+              
+            </span>
+            <ul class="nav navbar-nav pull-right">
+              
+                
+                  
+                
+              
+            </ul>
+          </div>
+        </div>
+      
+
+      <div class="container">
+        
+          <ul class="breadcrumb">
+            
+              
+                <li><a href="/api/">Api Root</a></li>
+              
+            
+              
+                <li class="active"><a href="/api/products/">Product List</a></li>
+              
+            
+          </ul>
+        
+
+        <!-- Content -->
+        <div id="content" role="main" aria-label="content">
+          
+
+          <div class="region"  aria-label="request form">
+          
+
+          
+            <form id="get-form" class="pull-right">
+              <fieldset>
+                
+                  <div class="btn-group format-selection">
+                    <a class="btn btn-primary js-tooltip" href="/api/products/" rel="nofollow" title="Make a GET request on the Product List resource">GET</a>
+
+                    <button class="btn btn-primary dropdown-toggle js-tooltip" data-toggle="dropdown" title="Specify a format for the GET request">
+                      <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                      
+                        <li>
+                          <a class="js-tooltip format-option" href="/api/products/?format=json" rel="nofollow" title="Make a GET request on the Product List resource with the format set to `json`">json</a>
+                        </li>
+                      
+                        <li>
+                          <a class="js-tooltip format-option" href="/api/products/?format=api" rel="nofollow" title="Make a GET request on the Product List resource with the format set to `api`">api</a>
+                        </li>
+                      
+                    </ul>
+                  </div>
+                
+              </fieldset>
+            </form>
+          
+
+          
+            <form class="button-form" action="/api/products/" data-method="OPTIONS">
+              <button class="btn btn-primary js-tooltip" title="Make an OPTIONS request on the Product List resource">OPTIONS</button>
+            </form>
+          
+
+          
+
+          
+
+          
+            <button style="float: right; margin-right: 10px" data-toggle="modal" data-target="#filtersModal" class="btn btn-default">
+              <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+              Filters
+            </button>
+          
+
+          
+          </div>
+
+            <div class="content-main" role="main"  aria-label="main content">
+              <div class="page-header">
+                <h1>Product List</h1>
+              </div>
+              <div class="pull-left">
+                
+                  
+                
+              </div>
+
+              
+
+              <div class="request-info" aria-label="request info">
+                <pre class="prettyprint"><b>GET</b> /api/products/</pre>
+              </div>
+
+              <div class="response-info" aria-label="response info">
+                <pre class="prettyprint"><span class="meta nocode"><b>HTTP 200 OK</b>
+<b>Allow:</b> <span class="lit">GET, POST, HEAD, OPTIONS</span>
+<b>Content-Type:</b> <span class="lit">application/json</span>
+<b>Vary:</b> <span class="lit">Accept</span>
+
+</span>[
+    {
+        &quot;id&quot;: &quot;1&quot;,
+        &quot;name&quot;: &quot;PandaSpeed Runner&quot;,
+        &quot;description&quot;: &quot;Lightweight running shoes with superior cushioning&quot;,
+        &quot;price&quot;: 129.99,
+        &quot;imageUrl&quot;: &quot;<a href="https://images.unsplash.com/photo-1542291026-7eec264c27ff" rel="nofollow">https://images.unsplash.com/photo-1542291026-7eec264c27ff</a>&quot;,
+        &quot;sizes&quot;: [
+            &quot;40&quot;,
+            &quot;41&quot;,
+            &quot;42&quot;
+        ],
+        &quot;category&quot;: &quot;Running&quot;,
+        &quot;brand&quot;: &quot;PandaShoes&quot;,
+        &quot;colors&quot;: [
+            &quot;Black&quot;
+        ],
+        &quot;rating&quot;: 0.0,
+        &quot;reviewCount&quot;: 0
+    },
+    {
+        &quot;id&quot;: &quot;2&quot;,
+        &quot;name&quot;: &quot;Urban Panda Casual&quot;,
+        &quot;description&quot;: &quot;Stylish and comfortable casual shoes&quot;,
+        &quot;price&quot;: 89.99,
+        &quot;imageUrl&quot;: &quot;<a href="https://images.unsplash.com/photo-1542291026-7eec264c27ff" rel="nofollow">https://images.unsplash.com/photo-1542291026-7eec264c27ff</a>&quot;,
+        &quot;sizes&quot;: [
+            &quot;39&quot;,
+            &quot;40&quot;,
+            &quot;41&quot;
+        ],
+        &quot;category&quot;: &quot;Casual&quot;,
+        &quot;brand&quot;: &quot;PandaShoes&quot;,
+        &quot;colors&quot;: [
+            &quot;Black&quot;
+        ],
+        &quot;rating&quot;: 0.0,
+        &quot;reviewCount&quot;: 0
+    },
+    {
+        &quot;id&quot;: &quot;3&quot;,
+        &quot;name&quot;: &quot;PandaFlex Training&quot;,
+        &quot;description&quot;: &quot;Versatile training shoes for gym and sports&quot;,
+        &quot;price&quot;: 109.99,
+        &quot;imageUrl&quot;: &quot;<a href="https://images.unsplash.com/photo-1542291026-7eec264c27ff" rel="nofollow">https://images.unsplash.com/photo-1542291026-7eec264c27ff</a>&quot;,
+        &quot;sizes&quot;: [
+            &quot;40&quot;,
+            &quot;41&quot;,
+            &quot;42&quot;
+        ],
+        &quot;category&quot;: &quot;Sport&quot;,
+        &quot;brand&quot;: &quot;PandaShoes&quot;,
+        &quot;colors&quot;: [
+            &quot;Black&quot;
+        ],
+        &quot;rating&quot;: 0.0,
+        &quot;reviewCount&quot;: 0
+    },
+    {
+        &quot;id&quot;: &quot;4&quot;,
+        &quot;name&quot;: &quot;Panda Fashion Elite&quot;,
+        &quot;description&quot;: &quot;Premium fashion sneakers for the style-conscious&quot;,
+        &quot;price&quot;: 149.99,
+        &quot;imageUrl&quot;: &quot;<a href="https://images.unsplash.com/photo-1542291026-7eec264c27ff" rel="nofollow">https://images.unsplash.com/photo-1542291026-7eec264c27ff</a>&quot;,
+        &quot;sizes&quot;: [
+            &quot;38&quot;,
+            &quot;39&quot;,
+            &quot;40&quot;
+        ],
+        &quot;category&quot;: &quot;Fashion&quot;,
+        &quot;brand&quot;: &quot;PandaShoes&quot;,
+        &quot;colors&quot;: [
+            &quot;Black&quot;
+        ],
+        &quot;rating&quot;: 0.0,
+        &quot;reviewCount&quot;: 0
+    },
+    {
+        &quot;id&quot;: &quot;5&quot;,
+        &quot;name&quot;: &quot;PandaAir Boost&quot;,
+        &quot;description&quot;: &quot;Advanced cushioning technology for long-distance running&quot;,
+        &quot;price&quot;: 159.99,
+        &quot;imageUrl&quot;: &quot;<a href="https://images.unsplash.com/photo-1542291026-7eec264c27ff" rel="nofollow">https://images.unsplash.com/photo-1542291026-7eec264c27ff</a>&quot;,
+        &quot;sizes&quot;: [
+            &quot;41&quot;,
+            &quot;42&quot;,
+            &quot;43&quot;
+        ],
+        &quot;category&quot;: &quot;Running&quot;,
+        &quot;brand&quot;: &quot;PandaShoes&quot;,
+        &quot;colors&quot;: [
+            &quot;Black&quot;
+        ],
+        &quot;rating&quot;: 0.0,
+        &quot;reviewCount&quot;: 0
+    }
+]</pre>
+              </div>
+            </div>
+
+            
+              
+
+              
+            
+          
+        </div><!-- /.content -->
+      </div><!-- /.container -->
+    </div><!-- ./wrapper -->
+
+    
+      <div class="modal fade" id="filtersModal" tabindex="-1" role="dialog" aria-labelledby="filters" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Filters</h4>
+    </div>
+      <div class="modal-body">
+          
+          
+          
+<h2>Search</h2>
+<form class="form-inline">
+  <div class="form-group">
+    <div class="input-group">
+      <input type="text" class="form-control" style="width: 350px" name="search" value="">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search</button>
+      </span>
+    </div>
+  </div>
+</form>
+
+          
+          <hr/>
+          
+
+<h2>Ordering</h2>
+<div class="list-group">
+    
+        
+            <a href="/api/products/?ordering=price" class="list-group-item">price - ascending</a>
+        
+    
+        
+            <a href="/api/products/?ordering=-price" class="list-group-item">price - descending</a>
+        
+    
+        
+            <a href="/api/products/?ordering=created_at" class="list-group-item">created_at - ascending</a>
+        
+    
+        
+            <a href="/api/products/?ordering=-created_at" class="list-group-item">created_at - descending</a>
+        
+    
+        
+            <a href="/api/products/?ordering=rating" class="list-group-item">rating - ascending</a>
+        
+    
+        
+            <a href="/api/products/?ordering=-rating" class="list-group-item">rating - descending</a>
+        
+    
+</div>
+
+          
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+      <script type="application/json" id="drf_csrf">
+        {
+          "csrfHeaderName": "X-CSRFTOKEN",
+          "csrfToken": "61M3Ag6Tix96inU5pSSgmnoG6q7mM5qj3aNoysQqVTPQZDlt38hwIB9nML6QqNnP"
+        }
+      </script>
+      <script src="/static/rest_framework/js/jquery-3.7.1.min.js"></script>
+      <script src="/static/rest_framework/js/ajax-form.js"></script>
+      <script src="/static/rest_framework/js/csrf.js"></script>
+      <script src="/static/rest_framework/js/bootstrap.min.js"></script>
+      <script src="/static/rest_framework/js/prettify-min.js"></script>
+      <script src="/static/rest_framework/js/default.js"></script>
+      <script src="/static/rest_framework/js/load-ajax-form.js"></script>
+    
+
+  </body>
+  
+</html>
+
+        
+DEBUG 2025-01-01 21:30:44,276 debug 740 5160 
+REQUEST: GET /admin/
+Headers: {'Content-Length': '', 'Content-Type': 'text/plain', 'Host': '127.0.0.1:8000', 'Connection': 'keep-alive', 'Upgrade-Insecure-Requests': '1', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7', 'Sec-Fetch-Site': 'none', 'Sec-Fetch-Mode': 'navigate', 'Sec-Fetch-User': '?1', 'Sec-Fetch-Dest': 'document', 'Sec-Ch-Ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"', 'Sec-Ch-Ua-Mobile': '?0', 'Sec-Ch-Ua-Platform': '"Windows"', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'en-US,en;q=0.9', 'Cookie': 'csrftoken=7jbv8mUHNwQURqByOqzqwoVRQv9EOS7G; sessionid=adii6nqbm2gsypm5kq8tdd8qg9y8tjc3'}
+Query Params: {}
+Body: <QueryDict: {}>
+        
+DEBUG 2025-01-01 21:30:44,337 debug 740 5160 
+RESPONSE: GET /admin/
+Status: 200
+Content: <!DOCTYPE html>
+
+<html lang="en-us" dir="ltr">
+<head>
+<title>Site administration | Django site admin</title>
+<link rel="stylesheet" href="/static/admin/css/base.css">
+
+  <link rel="stylesheet" href="/static/admin/css/dark_mode.css">
+  <script src="/static/admin/js/theme.js" defer></script>
+
+
+  <link rel="stylesheet" href="/static/admin/css/nav_sidebar.css">
+  <script src="/static/admin/js/nav_sidebar.js" defer></script>
+
+<link rel="stylesheet" href="/static/admin/css/dashboard.css">
+
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/admin/css/responsive.css">
+    
+
+<meta name="robots" content="NONE,NOARCHIVE">
+</head>
+
+<body class=" dashboard"
+  data-admin-utc-offset="0">
+<a href="#content-start" class="skip-to-content-link">Skip to main content</a>
+<!-- Container -->
+<div id="container">
+
+    
+    <!-- Header -->
+    
+      <header id="header">
+        <div id="branding">
+        
+<div id="site-name"><a href="/admin/">Django administration</a></div>
+
+
+        </div>
+        
+        
+        <div id="user-tools">
+            
+                Welcome,
+                <strong>admin</strong>.
+            
+            
+                
+                    <a href="/">View site</a> /
+                
+                
+                    
+                    
+                
+                
+                <a href="/admin/password_change/">Change password</a> /
+                
+                <form id="logout-form" method="post" action="/admin/logout/">
+                    <input type="hidden" name="csrfmiddlewaretoken" value="GQIpCfBY12mZqPVa3MVOBVqSDPLo79pjDZJKArlvEo2J75myH2k4X9bzjaKSLRmP">
+                    <button type="submit">Log out</button>
+                </form>
+                
+<button class="theme-toggle">
+  <div class="visually-hidden theme-label-when-auto">Toggle theme (current theme: auto)</div>
+  <div class="visually-hidden theme-label-when-light">Toggle theme (current theme: light)</div>
+  <div class="visually-hidden theme-label-when-dark">Toggle theme (current theme: dark)</div>
+  <svg aria-hidden="true" class="theme-icon-when-auto">
+    <use xlink:href="#icon-auto" />
+  </svg>
+  <svg aria-hidden="true" class="theme-icon-when-dark">
+    <use xlink:href="#icon-moon" />
+  </svg>
+  <svg aria-hidden="true" class="theme-icon-when-light">
+    <use xlink:href="#icon-sun" />
+  </svg>
+</button>
+
+            
+        </div>
+        
+        
+        
+      </header>
+    
+    <!-- END Header -->
+    
+    
+
+    <div class="main" id="main">
+      
+        
+      
+      <main id="content-start" class="content" tabindex="-1">
+        
+          
+        
+        <!-- Content -->
+        <div id="content" class="colMS">
+          
+          <h1>Site administration</h1>
+          
+          
+<div id="content-main">
+  
+
+
+  
+    <div class="app-auth module">
+      <table>
+        <caption>
+          <a href="/admin/auth/" class="section" title="Models in the Authentication and Authorization application">Authentication and Authorization</a>
+        </caption>
+        
+          <tr class="model-group">
+            
+              <th scope="row"><a href="/admin/auth/group/">Groups</a></th>
+            
+
+            
+              <td><a href="/admin/auth/group/add/" class="addlink">Add</a></td>
+            
+
+            
+              
+                <td><a href="/admin/auth/group/" class="changelink">Change</a></td>
+              
+            
+          </tr>
+        
+          <tr class="model-user">
+            
+              <th scope="row"><a href="/admin/auth/user/">Users</a></th>
+            
+
+            
+              <td><a href="/admin/auth/user/add/" class="addlink">Add</a></td>
+            
+
+            
+              
+                <td><a href="/admin/auth/user/" class="changelink">Change</a></td>
+              
+            
+          </tr>
+        
+      </table>
+    </div>
+  
+
+
+</div>
+
+          
+<div id="content-related">
+    <div class="module" id="recent-actions-module">
+        <h2>Recent actions</h2>
+        <h3>My actions</h3>
+            
+            
+            
+            <p>None available</p>
+            
+    </div>
+</div>
+
+          <br class="clear">
+        </div>
+        <!-- END Content -->
+        <div id="footer"></div>
+      </main>
+    </div>
+</div>
+<!-- END Container -->
+
+<!-- SVGs -->
+<svg xmlns="http://www.w3.org/2000/svg" class="base-svgs">
+  <symbol viewBox="0 0 24 24" width="1rem" height="1rem" id="icon-auto"><path d="M0 0h24v24H0z" fill="currentColor"/><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2V4a8 8 0 1 0 0 16z"/></symbol>
+  <symbol viewBox="0 0 24 24" width="1rem" height="1rem" id="icon-moon"><path d="M0 0h24v24H0z" fill="currentColor"/><path d="M10 7a7 7 0 0 0 12 4.9v.1c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2h.1A6.979 6.979 0 0 0 10 7zm-6 5a8 8 0 0 0 15.062 3.762A9 9 0 0 1 8.238 4.938 7.999 7.999 0 0 0 4 12z"/></symbol>
+  <symbol viewBox="0 0 24 24" width="1rem" height="1rem" id="icon-sun"><path d="M0 0h24v24H0z" fill="currentColor"/><path d="M12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12zm0-2a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM11 1h2v3h-2V1zm0 19h2v3h-2v-3zM3.515 4.929l1.414-1.414L7.05 5.636 5.636 7.05 3.515 4.93zM16.95 18.364l1.414-1.414 2.121 2.121-1.414 1.414-2.121-2.121zm2.121-14.85l1.414 1.415-2.121 2.121-1.414-1.414 2.121-2.121zM5.636 16.95l1.414 1.414-2.121 2.121-1.414-1.414 2.121-2.121zM23 11v2h-3v-2h3zM4 11v2H1v-2h3z"/></symbol>
+</svg>
+<!-- END SVGs -->
+</body>
+</html>
+
+        
+DEBUG 2025-01-01 21:30:53,476 debug 740 5160 
+REQUEST: GET /admin/auth/group/
+Headers: {'Content-Length': '', 'Content-Type': 'text/plain', 'Host': '127.0.0.1:8000', 'Connection': 'keep-alive', 'Sec-Ch-Ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"', 'Sec-Ch-Ua-Mobile': '?0', 'Sec-Ch-Ua-Platform': '"Windows"', 'Upgrade-Insecure-Requests': '1', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7', 'Sec-Fetch-Site': 'same-origin', 'Sec-Fetch-Mode': 'navigate', 'Sec-Fetch-User': '?1', 'Sec-Fetch-Dest': 'document', 'Referer': 'http://127.0.0.1:8000/admin/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'en-US,en;q=0.9', 'Cookie': 'csrftoken=7jbv8mUHNwQURqByOqzqwoVRQv9EOS7G; sessionid=adii6nqbm2gsypm5kq8tdd8qg9y8tjc3'}
+Query Params: {}
+Body: <QueryDict: {}>
+        
+DEBUG 2025-01-01 21:30:53,532 debug 740 5160 
+RESPONSE: GET /admin/auth/group/
+Status: 200
+Content: <!DOCTYPE html>
+
+<html lang="en-us" dir="ltr">
+<head>
+<title>Select group to change | Django site admin</title>
+<link rel="stylesheet" href="/static/admin/css/base.css">
+
+  <link rel="stylesheet" href="/static/admin/css/dark_mode.css">
+  <script src="/static/admin/js/theme.js" defer></script>
+
+
+  <link rel="stylesheet" href="/static/admin/css/nav_sidebar.css">
+  <script src="/static/admin/js/nav_sidebar.js" defer></script>
+
+
+  
+  <link rel="stylesheet" href="/static/admin/css/changelists.css">
+  
+  
+    <script src="/admin/jsi18n/"></script>
+  
+  
+  
+
+
+
+
+<script src="/static/admin/js/vendor/jquery/jquery.js"></script>
+<script src="/static/admin/js/jquery.init.js"></script>
+<script src="/static/admin/js/core.js"></script>
+<script src="/static/admin/js/admin/RelatedObjectLookups.js"></script>
+<script src="/static/admin/js/actions.js"></script>
+<script src="/static/admin/js/urlify.js"></script>
+<script src="/static/admin/js/prepopulate.js"></script>
+<script src="/static/admin/js/vendor/xregexp/xregexp.js"></script>
+<script src="/static/admin/js/filters.js" defer></script>
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/admin/css/responsive.css">
+    
+
+<meta name="robots" content="NONE,NOARCHIVE">
+</head>
+
+<body class=" app-auth model-group change-list"
+  data-admin-utc-offset="0">
+<a href="#content-start" class="skip-to-content-link">Skip to main content</a>
+<!-- Container -->
+<div id="container">
+
+    
+    <!-- Header -->
+    
+      <header id="header">
+        <div id="branding">
+        
+<div id="site-name"><a href="/admin/">Django administration</a></div>
+
+
+        </div>
+        
+        
+        <div id="user-tools">
+            
+                Welcome,
+                <strong>admin</strong>.
+            
+            
+                
+                    <a href="/">View site</a> /
+                
+                
+                    
+                    
+                
+                
+                <a href="/admin/password_change/">Change password</a> /
+                
+                <form id="logout-form" method="post" action="/admin/logout/">
+                    <input type="hidden" name="csrfmiddlewaretoken" value="qmuGLXQYmWS5gGC74Cg5TDNFe17kRHfjnvv1J9AvZiyPXW3vISFlfRymUm6OvpcP">
+                    <button type="submit">Log out</button>
+                </form>
+                
+<button class="theme-toggle">
+  <div class="visually-hidden theme-label-when-auto">Toggle theme (current theme: auto)</div>
+  <div class="visually-hidden theme-label-when-light">Toggle theme (current theme: light)</div>
+  <div class="visually-hidden theme-label-when-dark">Toggle theme (current theme: dark)</div>
+  <svg aria-hidden="true" class="theme-icon-when-auto">
+    <use xlink:href="#icon-auto" />
+  </svg>
+  <svg aria-hidden="true" class="theme-icon-when-dark">
+    <use xlink:href="#icon-moon" />
+  </svg>
+  <svg aria-hidden="true" class="theme-icon-when-light">
+    <use xlink:href="#icon-sun" />
+  </svg>
+</button>
+
+            
+        </div>
+        
+        
+        
+      </header>
+    
+    <!-- END Header -->
+    
+      <nav aria-label="Breadcrumbs">
+        
+<div class="breadcrumbs">
+<a href="/admin/">Home</a>
+&rsaquo; <a href="/admin/auth/">Authentication and Authorization</a>
+&rsaquo; Groups
+</div>
+
+      </nav>
+    
+    
+
+    <div class="main" id="main">
+      
+        
+          
+<button class="sticky toggle-nav-sidebar" id="toggle-nav-sidebar" aria-label="Toggle navigation"></button>
+<nav class="sticky" id="nav-sidebar" aria-label="Sidebar">
+  <input type="search" id="nav-filter"
+         placeholder="Start typing to filter…"
+         aria-label="Filter navigation items">
+  
+
+
+  
+    <div class="app-auth module current-app">
+      <table>
+        <caption>
+          <a href="/admin/auth/" class="section" title="Models in the Authentication and Authorization application">Authentication and Authorization</a>
+        </caption>
+        
+          <tr class="model-group current-model">
+            
+              <th scope="row"><a href="/admin/auth/group/" aria-current="page">Groups</a></th>
+            
+
+            
+              <td><a href="/admin/auth/group/add/" class="addlink">Add</a></td>
+            
+
+            
+          </tr>
+        
+          <tr class="model-user">
+            
+              <th scope="row"><a href="/admin/auth/user/">Users</a></th>
+            
+
+            
+              <td><a href="/admin/auth/user/add/" class="addlink">Add</a></td>
+            
+
+            
+          </tr>
+        
+      </table>
+    </div>
+  
+
+
+</nav>
+
+        
+      
+      <main id="content-start" class="content" tabindex="-1">
+        
+          
+        
+        <!-- Content -->
+        <div id="content" class="">
+          
+          <h1>Select group to change</h1>
+          
+          
+  <div id="content-main">
+    
+        <ul class="object-tools">
+          
+            
+
+
+  
+  <li>
+    
+    <a href="/admin/auth/group/add/" class="addlink">
+      Add group
+    </a>
+  </li>
+  
+
+
+          
+        </ul>
+    
+    
+    <div class="module" id="changelist">
+      <div class="changelist-form-container">
+        
+
+<div id="toolbar"><form id="changelist-search" method="get" role="search">
+<div><!-- DIV needed for valid HTML -->
+<label for="searchbar"><img src="/static/admin/img/search.svg" alt="Search"></label>
+<input type="text" size="40" name="q" value="" id="searchbar">
+<input type="submit" value="Search">
+
+
+</div>
+
+</form></div>
+
+
+        
+
+        <form id="changelist-form" method="post" novalidate><input type="hidden" name="csrfmiddlewaretoken" value="qmuGLXQYmWS5gGC74Cg5TDNFe17kRHfjnvv1J9AvZiyPXW3vISFlfRymUm6OvpcP">
+        
+
+        
+          
+          
+
+
+
+          
+        
+        
+
+<p class="paginator">
+
+0 groups
+
+
+</p>
+
+        </form>
+      </div>
+      
+        
+      
+    </div>
+  </div>
+
+          
+          <br class="clear">
+        </div>
+        <!-- END Content -->
+        <div id="footer"></div>
+      </main>
+    </div>
+</div>
+<!-- END Container -->
+
+<!-- SVGs -->
+<svg xmlns="http://www.w3.org/2000/svg" class="base-svgs">
+  <symbol viewBox="0 0 24 24" width="1rem" height="1rem" id="icon-auto"><path d="M0 0h24v24H0z" fill="currentColor"/><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2V4a8 8 0 1 0 0 16z"/></symbol>
+  <symbol viewBox="0 0 24 24" width="1rem" height="1rem" id="icon-moon"><path d="M0 0h24v24H0z" fill="currentColor"/><path d="M10 7a7 7 0 0 0 12 4.9v.1c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2h.1A6.979 6.979 0 0 0 10 7zm-6 5a8 8 0 0 0 15.062 3.762A9 9 0 0 1 8.238 4.938 7.999 7.999 0 0 0 4 12z"/></symbol>
+  <symbol viewBox="0 0 24 24" width="1rem" height="1rem" id="icon-sun"><path d="M0 0h24v24H0z" fill="currentColor"/><path d="M12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12zm0-2a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM11 1h2v3h-2V1zm0 19h2v3h-2v-3zM3.515 4.929l1.414-1.414L7.05 5.636 5.636 7.05 3.515 4.93zM16.95 18.364l1.414-1.414 2.121 2.121-1.414 1.414-2.121-2.121zm2.121-14.85l1.414 1.415-2.121 2.121-1.414-1.414 2.121-2.121zM5.636 16.95l1.414 1.414-2.121 2.121-1.414-1.414 2.121-2.121zM23 11v2h-3v-2h3zM4 11v2H1v-2h3z"/></symbol>
+</svg>
+<!-- END SVGs -->
+</body>
+</html>
+
+        
+DEBUG 2025-01-01 21:30:53,713 debug 740 5160 
+REQUEST: GET /admin/jsi18n/
+Headers: {'Content-Length': '', 'Content-Type': 'text/plain', 'Host': '127.0.0.1:8000', 'Connection': 'keep-alive', 'Sec-Ch-Ua-Platform': '"Windows"', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', 'Sec-Ch-Ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"', 'Sec-Ch-Ua-Mobile': '?0', 'Accept': '*/*', 'Sec-Fetch-Site': 'same-origin', 'Sec-Fetch-Mode': 'no-cors', 'Sec-Fetch-Dest': 'script', 'Referer': 'http://127.0.0.1:8000/admin/auth/group/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'en-US,en;q=0.9', 'Cookie': 'csrftoken=7jbv8mUHNwQURqByOqzqwoVRQv9EOS7G; sessionid=adii6nqbm2gsypm5kq8tdd8qg9y8tjc3'}
+Query Params: {}
+Body: <QueryDict: {}>
+        
+DEBUG 2025-01-01 21:30:53,724 debug 740 5160 
+RESPONSE: GET /admin/jsi18n/
+Status: 200
+Content: 
+'use strict';
+{
+  const globals = this;
+  const django = globals.django || (globals.django = {});
+
+  
+  django.pluralidx = function(count) { return (count == 1) ? 0 : 1; };
+  
+
+  /* gettext library */
+
+  django.catalog = django.catalog || {};
+  
+
+  if (!django.jsi18n_initialized) {
+    django.gettext = function(msgid) {
+      const value = django.catalog[msgid];
+      if (typeof value === 'undefined') {
+        return msgid;
+      } else {
+        return (typeof value === 'string') ? value : value[0];
+      }
+    };
+
+    django.ngettext = function(singular, plural, count) {
+      const value = django.catalog[singular];
+      if (typeof value === 'undefined') {
+        return (count == 1) ? singular : plural;
+      } else {
+        return value.constructor === Array ? value[django.pluralidx(count)] : value;
+      }
+    };
+
+    django.gettext_noop = function(msgid) { return msgid; };
+
+    django.pgettext = function(context, msgid) {
+      let value = django.gettext(context + '\x04' + msgid);
+      if (value.includes('\x04')) {
+        value = msgid;
+      }
+      return value;
+    };
+
+    django.npgettext = function(context, singular, plural, count) {
+      let value = django.ngettext(context + '\x04' + singular, context + '\x04' + plural, count);
+      if (value.includes('\x04')) {
+        value = django.ngettext(singular, plural, count);
+      }
+      return value;
+    };
+
+    django.interpolate = function(fmt, obj, named) {
+      if (named) {
+        return fmt.replace(/%\(\w+\)s/g, function(match){return String(obj[match.slice(2,-2)])});
+      } else {
+        return fmt.replace(/%s/g, function(match){return String(obj.shift())});
+      }
+    };
+
+
+    /* formatting library */
+
+    django.formats = {
+    "DATETIME_FORMAT": "N j, Y, P",
+    "DATETIME_INPUT_FORMATS": [
+      "%Y-%m-%d %H:%M:%S",
+      "%Y-%m-%d %H:%M:%S.%f",
+      "%Y-%m-%d %H:%M",
+      "%m/%d/%Y %H:%M:%S",
+      "%m/%d/%Y %H:%M:%S.%f",
+      "%m/%d/%Y %H:%M",
+      "%m/%d/%y %H:%M:%S",
+      "%m/%d/%y %H:%M:%S.%f",
+      "%m/%d/%y %H:%M",
+      "%Y-%m-%d"
+    ],
+    "DATE_FORMAT": "N j, Y",
+    "DATE_INPUT_FORMATS": [
+      "%Y-%m-%d",
+      "%m/%d/%Y",
+      "%m/%d/%y",
+      "%b %d %Y",
+      "%b %d, %Y",
+      "%d %b %Y",
+      "%d %b, %Y",
+      "%B %d %Y",
+      "%B %d, %Y",
+      "%d %B %Y",
+      "%d %B, %Y"
+    ],
+    "DECIMAL_SEPARATOR": ".",
+    "FIRST_DAY_OF_WEEK": 0,
+    "MONTH_DAY_FORMAT": "F j",
+    "NUMBER_GROUPING": 3,
+    "SHORT_DATETIME_FORMAT": "m/d/Y P",
+    "SHORT_DATE_FORMAT": "m/d/Y",
+    "THOUSAND_SEPARATOR": ",",
+    "TIME_FORMAT": "P",
+    "TIME_INPUT_FORMATS": [
+      "%H:%M:%S",
+      "%H:%M:%S.%f",
+      "%H:%M"
+    ],
+    "YEAR_MONTH_FORMAT": "F Y"
+  };
+
+    django.get_format = function(format_type) {
+      const value = django.formats[format_type];
+      if (typeof value === 'undefined') {
+        return format_type;
+      } else {
+        return value;
+      }
+    };
+
+    /* add to global namespace */
+    globals.pluralidx = django.pluralidx;
+    globals.gettext = django.gettext;
+    globals.ngettext = django.ngettext;
+    globals.gettext_noop = django.gettext_noop;
+    globals.pgettext = django.pgettext;
+    globals.npgettext = django.npgettext;
+    globals.interpolate = django.interpolate;
+    globals.get_format = django.get_format;
+
+    django.jsi18n_initialized = true;
+  }
+};
+
+
+        

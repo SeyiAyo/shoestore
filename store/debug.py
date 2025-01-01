@@ -1,17 +1,24 @@
 import logging
 import traceback
 import json
+import os
 from datetime import datetime
 from django.http import JsonResponse
 from rest_framework import status
 from django.conf import settings
+
+# Define log directory
+LOG_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'logs')
+if not os.path.exists(LOG_DIR):
+    os.makedirs(LOG_DIR)
 
 # Configure logging
 logger = logging.getLogger('store.debug')
 logger.setLevel(logging.DEBUG)
 
 # Create file handler
-fh = logging.FileHandler('debug.log')
+log_file = os.path.join(LOG_DIR, 'debug.log')
+fh = logging.FileHandler(log_file)
 fh.setLevel(logging.DEBUG)
 
 # Create console handler
