@@ -24,10 +24,7 @@ class ProductSerializer(serializers.ModelSerializer):
 
     def get_imageUrl(self, obj):
         if obj.image:
-            request = self.context.get('request')
-            if request:
-                return request.build_absolute_uri(obj.image.url)
-            return obj.image.url
+            return obj.image
         return 'https://images.unsplash.com/photo-1542291026-7eec264c27ff'  # Default image
 
     def get_sizes(self, obj):
