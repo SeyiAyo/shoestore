@@ -1,4 +1,6 @@
+import os
 import logging
+from logging.handlers import RotatingFileHandler
 import json
 import traceback
 from datetime import datetime
@@ -6,31 +8,49 @@ from django.http import JsonResponse
 from rest_framework import status
 from django.conf import settings
 
-# Define log directory
-LOG_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'logs')
-if not os.path.exists(LOG_DIR):
-    os.makedirs(LOG_DIR)
-
-# Configure logging
+# Configure logging based on environment
 logger = logging.getLogger('store')
 logger.setLevel(logging.DEBUG)
 
-# Create console handler
-ch = logging.StreamHandler()
-ch.setLevel(logging.DEBUG)
+# Create formatters and handlers
+log_format = logging.Formatter(
+    '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+)
 
-# Create formatter
-formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-ch.setFormatter(formatter)
+# Always add console handler
+console_handler = logging.StreamHandler()
+console_handler.setFormatter(log_format)
+logger.addHandler(console_handler)
 
-# Add handlers to logger
-logger.addHandler(ch)
+# Add file handler only in development (not on Vercel)
+if 'VERCEL' not in os.environ:
+    LOG_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'logs')
+    if not os.path.exists(LOG_DIR):
+        os.makedirs(LOG_DIR)
+    
+    LOG_FILE = os.path.join(LOG_DIR, 'store.log')
+    MAX_LOG_SIZE = 5 * 1024 * 1024  # 5MB
+    BACKUP_COUNT = 5
+    
+    file_handler = RotatingFileHandler(
+        LOG_FILE,
+        maxBytes=MAX_LOG_SIZE,
+        backupCount=BACKUP_COUNT
+    )
+    file_handler.setFormatter(log_format)
+    logger.addHandler(file_handler)
 
 def log_debug(message, extra=None):
     """Log debug message with optional extra data"""
     if extra:
         message = f"{message} - Extra: {json.dumps(extra)}"
     logger.debug(message)
+
+def log_info(message):
+    logger.info(message)
+
+def log_warning(message):
+    logger.warning(message)
 
 def log_error(message, exc=None, extra=None):
     """Log error message with optional exception and extra data"""
@@ -40,6 +60,9 @@ def log_error(message, exc=None, extra=None):
     if extra:
         message = f"{message}\nExtra: {json.dumps(extra)}"
     logger.error(message)
+
+def log_critical(message, exc_info=None):
+    logger.critical(message, exc_info=exc_info)
 
 class APIDebugMiddleware:
     def __init__(self, get_response):
