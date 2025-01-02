@@ -13,7 +13,11 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 from pathlib import Path
 from datetime import timedelta
 import os
+from dotenv import load_dotenv
 import dj_database_url
+
+# Load environment variables from .env file
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -81,12 +85,27 @@ WSGI_APPLICATION = 'shoestore.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+# Construct database URL
+DB_USER = os.getenv('DB_USER', 'postgres')
+DB_PASSWORD = os.getenv('DB_PASSWORD', 'Seyisensei18')
+DB_HOST = os.getenv('DB_HOST', 'db.lzyyjfjndqfuflwcfypt.supabase.co')
+DB_NAME = os.getenv('DB_NAME', 'postgres')
+DB_PORT = os.getenv('DB_PORT', '5432')
+
+DATABASE_URL = f"postgresql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
+
 DATABASES = {
     'default': dj_database_url.config(
-        default='sqlite:////' + str(BASE_DIR / 'db.sqlite3'),
+        default=DATABASE_URL,
         conn_max_age=600,
         conn_health_checks=True,
+        ssl_require=True
     )
+}
+
+# Add SSL configuration for Supabase
+DATABASES['default']['OPTIONS'] = {
+    'sslmode': 'require'
 }
 
 
