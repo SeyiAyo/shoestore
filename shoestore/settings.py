@@ -14,7 +14,6 @@ from pathlib import Path
 from datetime import timedelta
 import os
 from dotenv import load_dotenv
-import dj_database_url
 
 # Load environment variables from .env file
 load_dotenv()
@@ -32,7 +31,13 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-+g8l1^z-8n&t)i
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'VERCEL' not in os.environ
 
-ALLOWED_HOSTS = ['.vercel.app', 'localhost', '127.0.0.1', '10.0.2.2']
+ALLOWED_HOSTS = [
+    '.vercel.app',
+    'localhost',
+    '127.0.0.1',
+    '10.0.2.2',
+    'shoestore-fk2wj4nec-oluwaseyi-ayoolas-projects.vercel.app'
+]
 
 
 # Application definition
@@ -85,29 +90,28 @@ WSGI_APPLICATION = 'shoestore.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-# Construct database URL
-DB_USER = os.getenv('DB_USER', 'postgres')
-DB_PASSWORD = os.getenv('DB_PASSWORD', 'Seyisensei18')
-DB_HOST = os.getenv('DB_HOST', 'db.lzyyjfjndqfuflwcfypt.supabase.co')
-DB_NAME = os.getenv('DB_NAME', 'postgres')
-DB_PORT = os.getenv('DB_PORT', '5432')
-
-DATABASE_URL = f"postgresql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
-
-DATABASES = {
-    'default': dj_database_url.config(
-        default=DATABASE_URL,
-        conn_max_age=600,
-        conn_health_checks=True,
-        ssl_require=True
-    )
-}
-
-# Add SSL configuration for Supabase
-DATABASES['default']['OPTIONS'] = {
-    'sslmode': 'require'
-}
-
+# Database configuration
+if 'VERCEL' in os.environ:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': os.getenv('DB_NAME', 'postgres'),
+            'USER': os.getenv('DB_USER', 'postgres'),
+            'PASSWORD': os.getenv('DB_PASSWORD', 'Seyisensei18'),
+            'HOST': os.getenv('DB_HOST', 'lzyyjfjndqfuflwcfypt.supabase.co'),
+            'PORT': os.getenv('DB_PORT', '5432'),
+            'OPTIONS': {
+                'sslmode': 'require'
+            }
+        }
+    }
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
@@ -155,22 +159,22 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # CORS settings
-CORS_ALLOW_ALL_ORIGINS = True  # Only for development, configure properly for production
-CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOW_ALL_ORIGINS = False  # More secure for production
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://127.0.0.1:3000",
     "http://localhost:8000",
     "http://127.0.0.1:8000",
+    "https://shoestore-fk2wj4nec-oluwaseyi-ayoolas-projects.vercel.app"
 ]
 
 CORS_ALLOWED_METHODS = [
+    'DELETE',
     'GET',
+    'OPTIONS',
+    'PATCH',
     'POST',
     'PUT',
-    'PATCH',
-    'DELETE',
-    'OPTIONS'
 ]
 
 CORS_ALLOWED_HEADERS = [
