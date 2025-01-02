@@ -1,0 +1,16 @@
+{
+    "builds": [{
+        "src": "shoestore/wsgi.py",
+        "use": "@vercel/python"
+    }],
+    "routes": [
+        {
+            "src": "/static/(.*)",
+            "dest": "/static/$1"
+        },
+        {
+            "src": "/(.*)",
+            "dest": "shoestore/wsgi.py"
+        }
+    ]
+}
