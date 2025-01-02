@@ -1,7 +1,6 @@
 import logging
-import traceback
 import json
-import os
+import traceback
 from datetime import datetime
 from django.http import JsonResponse
 from rest_framework import status
@@ -13,13 +12,8 @@ if not os.path.exists(LOG_DIR):
     os.makedirs(LOG_DIR)
 
 # Configure logging
-logger = logging.getLogger('store.debug')
+logger = logging.getLogger('store')
 logger.setLevel(logging.DEBUG)
-
-# Create file handler
-log_file = os.path.join(LOG_DIR, 'debug.log')
-fh = logging.FileHandler(log_file)
-fh.setLevel(logging.DEBUG)
 
 # Create console handler
 ch = logging.StreamHandler()
@@ -27,12 +21,25 @@ ch.setLevel(logging.DEBUG)
 
 # Create formatter
 formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-fh.setFormatter(formatter)
 ch.setFormatter(formatter)
 
 # Add handlers to logger
-logger.addHandler(fh)
 logger.addHandler(ch)
+
+def log_debug(message, extra=None):
+    """Log debug message with optional extra data"""
+    if extra:
+        message = f"{message} - Extra: {json.dumps(extra)}"
+    logger.debug(message)
+
+def log_error(message, exc=None, extra=None):
+    """Log error message with optional exception and extra data"""
+    if exc:
+        tb = ''.join(traceback.format_tb(exc.__traceback__))
+        message = f"{message}\nException: {str(exc)}\nTraceback:\n{tb}"
+    if extra:
+        message = f"{message}\nExtra: {json.dumps(extra)}"
+    logger.error(message)
 
 class APIDebugMiddleware:
     def __init__(self, get_response):
@@ -40,55 +47,57 @@ class APIDebugMiddleware:
 
     def __call__(self, request):
         # Log request
-        self.log_request(request)
+        self._log_request(request)
         
         try:
             response = self.get_response(request)
             # Log response
-            self.log_response(request, response)
+            self._log_response(request, response)
             return response
         except Exception as e:
             # Log error
-            self.log_error(request, e)
+            log_error("An error occurred", e)
             return self.handle_error(e)
 
-    def log_request(self, request):
-        logger.debug(f"""
-REQUEST: {request.method} {request.path}
-Headers: {dict(request.headers)}
-Query Params: {dict(request.GET)}
-Body: {self.get_request_body(request)}
-        """)
+    def _log_request(self, request):
+        """Log incoming request details"""
+        headers = dict(request.headers)
+        # Remove sensitive information
+        if 'Authorization' in headers:
+            headers['Authorization'] = '[FILTERED]'
+        
+        body = None
+        if request.body:
+            try:
+                body = json.loads(request.body)
+            except json.JSONDecodeError:
+                body = "Could not parse request body"
+        
+        log_debug(
+            f"\nREQUEST: {request.method} {request.path}",
+            {
+                "headers": headers,
+                "query_params": dict(request.GET),
+                "body": body
+            }
+        )
 
-    def log_response(self, request, response):
-        logger.debug(f"""
-RESPONSE: {request.method} {request.path}
-Status: {response.status_code}
-Content: {self.get_response_content(response)}
-        """)
-
-    def log_error(self, request, exception):
-        logger.error(f"""
-ERROR: {request.method} {request.path}
-Type: {type(exception).__name__}
-Message: {str(exception)}
-Traceback:
-{traceback.format_exc()}
-        """)
-
-    def get_request_body(self, request):
-        try:
-            if request.content_type and 'application/json' in request.content_type:
-                return json.loads(request.body)
-            return request.POST
-        except:
-            return 'Could not parse request body'
-
-    def get_response_content(self, response):
-        try:
-            return response.content.decode('utf-8')
-        except:
-            return 'Could not decode response content'
+    def _log_response(self, request, response):
+        """Log outgoing response details"""
+        content = None
+        if hasattr(response, 'content'):
+            try:
+                content = response.content.decode('utf-8')
+            except:
+                content = "[Binary content]"
+        
+        log_debug(
+            f"\nRESPONSE: {request.method} {request.path}",
+            {
+                "status": response.status_code,
+                "content": content
+            }
+        )
 
     def handle_error(self, exception):
         error_response = {
@@ -106,22 +115,6 @@ Traceback:
             error_response,
             status=status.HTTP_500_INTERNAL_SERVER_ERROR
         )
-
-def log_debug(message, extra=None):
-    """Utility function to log debug messages"""
-    if extra:
-        logger.debug(f"{message} - Extra: {json.dumps(extra, default=str)}")
-    else:
-        logger.debug(message)
-
-def log_error(message, exception=None, extra=None):
-    """Utility function to log error messages"""
-    if exception:
-        logger.error(f"{message}\nException: {str(exception)}\nTraceback:\n{traceback.format_exc()}")
-    elif extra:
-        logger.error(f"{message} - Extra: {json.dumps(extra, default=str)}")
-    else:
-        logger.error(message)
 
 def api_error_response(message, status_code=status.HTTP_400_BAD_REQUEST, extra=None):
     """Utility function to return consistent error responses"""

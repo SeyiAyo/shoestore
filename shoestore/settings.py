@@ -193,23 +193,25 @@ LOGGING = {
             'format': '{levelname} {asctime} {module} {process:d} {thread:d} {message}',
             'style': '{',
         },
+        'simple': {
+            'format': '{levelname} {message}',
+            'style': '{',
+        },
     },
     'handlers': {
-        'file': {
-            'level': 'DEBUG',
-            'class': 'logging.FileHandler',
-            'filename': os.path.join(BASE_DIR, 'logs', 'debug.log'),
-            'formatter': 'verbose',
-        },
         'console': {
-            'level': 'DEBUG',
             'class': 'logging.StreamHandler',
             'formatter': 'verbose',
         },
     },
     'loggers': {
-        'store.debug': {
-            'handlers': ['file', 'console'],
+        'django': {
+            'handlers': ['console'],
+            'level': os.getenv('DJANGO_LOG_LEVEL', 'INFO'),
+            'propagate': True,
+        },
+        'store': {
+            'handlers': ['console'],
             'level': 'DEBUG',
             'propagate': True,
         },
