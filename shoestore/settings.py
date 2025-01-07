@@ -92,43 +92,31 @@ TEMPLATES = [
 WSGI_APPLICATION = 'shoestore.wsgi.application'
 
 
-# Database configuration with Supabase transaction pooler
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
-        'USER': 'postgres.vlcyjeetsziuiwrpegvp',  # Correct pooler username
-        'PASSWORD': os.getenv('SUPABASE_DB_PASSWORD'),
-        'HOST': 'aws-0-us-west-1.pooler.supabase.com',
-        'PORT': '6543',
-        'OPTIONS': {
-            'sslmode': 'require',
-            'application_name': 'shoestore',
-            'connect_timeout': 10,
-        },
-        'CONN_MAX_AGE': 0,  # Close connections immediately for serverless
-        'ATOMIC_REQUESTS': True,  # Wrap each request in a transaction
-    }
-}
+# Database configuration using dj-database-url
+import dj_database_url
 
-# Override database settings with DATABASE_URL if available
-database_url = os.getenv('DATABASE_URL')
-if database_url:
-    import dj_database_url
-    # Use the pooler URL
-    pooler_url = f"postgresql://postgres.vlcyjeetsziuiwrpegvp:{os.getenv('SUPABASE_DB_PASSWORD')}@aws-0-us-west-1.pooler.supabase.com:6543/postgres"
-    DATABASES['default'] = dj_database_url.config(
-        default=pooler_url,
+# Construct the pooler URL
+db_url = f"postgresql://postgres.vlcyjeetsziuiwrpegvp:{os.getenv('SUPABASE_DB_PASSWORD')}@aws-0-us-west-1.pooler.supabase.com:6543/postgres"
+
+# Configure database with pooler settings
+DATABASES = {
+    'default': dj_database_url.config(
+        default=db_url,
         conn_max_age=0,
         ssl_require=True,
+        engine='django.db.backends.postgresql',
     )
-    
-    # Ensure SSL and other required options
-    DATABASES['default']['OPTIONS'] = {
-        'sslmode': 'require',
-        'application_name': 'shoestore',
-        'connect_timeout': 10,
-    }
+}
+
+# Ensure SSL and timeout options
+DATABASES['default']['OPTIONS'] = {
+    'sslmode': 'require',
+    'application_name': 'shoestore',
+    'connect_timeout': 10,
+}
+
+# Force immediate connection closure for serverless
+DATABASES['default']['CONN_MAX_AGE'] = 0
 
 
 # Password validation
