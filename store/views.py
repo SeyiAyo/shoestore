@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from rest_framework import viewsets, filters, status
+from rest_framework import viewsets, filters, status, permissions
 from rest_framework.response import Response
 from rest_framework.decorators import action
 from rest_framework.permissions import IsAuthenticated, AllowAny
@@ -34,13 +34,13 @@ class CategoryViewSet(viewsets.ModelViewSet):
 class ProductViewSet(viewsets.ModelViewSet):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
-    permission_classes = [AllowAny]
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     filter_backends = [filters.SearchFilter, filters.OrderingFilter]
     search_fields = ['name', 'description', 'brand']
     ordering_fields = ['price', 'created_at', 'rating']
 
     def get_permissions(self):
-        if self.action in ['create', 'update', 'partial_update', 'destroy', 'add_size']:
+        if self.action in ['create', 'update', 'partial_update', 'destroy', 'add_size', 'rate_product']:
             return [IsAuthenticated()]
         return [AllowAny()]
 
@@ -81,7 +81,33 @@ class ProductViewSet(viewsets.ModelViewSet):
     def list(self, request, *args, **kwargs):
         try:
             log_debug('Fetching products', {'params': dict(request.query_params)})
-            return super().list(request, *args, **kwargs)
+            queryset = self.get_queryset()
+            
+            # Filter by minimum rating
+            min_rating = request.query_params.get('min_rating', None)
+            if min_rating:
+                queryset = queryset.filter(rating__gte=float(min_rating))
+            
+            # Filter by price range
+            min_price = request.query_params.get('min_price', None)
+            max_price = request.query_params.get('max_price', None)
+            if min_price:
+                queryset = queryset.filter(price__gte=float(min_price))
+            if max_price:
+                queryset = queryset.filter(price__lte=float(max_price))
+            
+            # Search by name or description
+            search = request.query_params.get('search', None)
+            if search:
+                queryset = queryset.filter(name__icontains=search) | queryset.filter(description__icontains=search)
+
+            page = self.paginate_queryset(queryset)
+            if page is not None:
+                serializer = self.get_serializer(page, many=True)
+                return self.get_paginated_response(serializer.data)
+
+            serializer = self.get_serializer(queryset, many=True)
+            return Response(serializer.data)
         except Exception as e:
             log_error('Error fetching products', e)
             return api_error_response('Failed to fetch products', status.HTTP_500_INTERNAL_SERVER_ERROR)
@@ -107,6 +133,33 @@ class ProductViewSet(viewsets.ModelViewSet):
         except Exception as e:
             log_error('Error adding size to product', e)
             return api_error_response('Failed to add size', status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+    @action(detail=True, methods=['post'])
+    def rate_product(self, request, pk=None):
+        product = self.get_object()
+        rating = request.data.get('rating', None)
+        
+        if rating is None:
+            return Response({'error': 'Rating is required'}, status=status.HTTP_400_BAD_REQUEST)
+        
+        try:
+            rating = float(rating)
+            if not (0 <= rating <= 5):
+                raise ValueError
+        except ValueError:
+            return Response({'error': 'Rating must be between 0 and 5'}, 
+                          status=status.HTTP_400_BAD_REQUEST)
+
+        # Update product rating
+        if product.review_count == 0:
+            product.rating = rating
+        else:
+            product.rating = ((product.rating * product.review_count) + rating) / (product.review_count + 1)
+        
+        product.review_count += 1
+        product.save()
+        
+        return Response({'success': 'Rating added successfully'})
 
 class OrderViewSet(viewsets.ModelViewSet):
     serializer_class = OrderSerializer
