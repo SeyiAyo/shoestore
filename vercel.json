@@ -6,12 +6,15 @@
             "use": "@vercel/python",
             "config": {
                 "maxLambdaSize": "15mb",
-                "runtime": "python3.9",
-                "installCommand": "bash vercel.build.sh"
+                "runtime": "python3.9"
             }
         }
     ],
     "routes": [
+        {
+            "src": "/static/(.*)",
+            "dest": "/static/$1"
+        },
         {
             "src": "/(.*)",
             "dest": "shoestore/wsgi.py"
@@ -21,6 +24,7 @@
         "DJANGO_SETTINGS_MODULE": "shoestore.settings",
         "DJANGO_ENV": "production",
         "PYTHONPATH": "/var/task",
-        "DATABASE_URL": "postgres://postgres:Seyisensei18@db.vlcyjeetsziuiwrpegvp.supabase.co:5432/postgres"
+        "DATABASE_URL": "postgres://postgres:Seyisensei18@db.vlcyjeetsziuiwrpegvp.supabase.co:5432/postgres",
+        "POSTGRES_SSL": "true"
     }
 }

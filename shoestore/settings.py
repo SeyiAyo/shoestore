@@ -97,8 +97,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-database_url = os.getenv('DATABASE_URL', 'postgres://postgres:Seyisensei18@db.vlcyjeetsziuiwrpegvp.supabase.co:5432/postgres')
-
+# Database configuration with connection pooling for serverless
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -108,14 +107,32 @@ DATABASES = {
         'HOST': 'db.vlcyjeetsziuiwrpegvp.supabase.co',
         'PORT': '5432',
         'OPTIONS': {
-            'sslmode': 'require'
-        }
+            'sslmode': 'require',
+            'keepalives': 1,
+            'keepalives_idle': 30,
+            'keepalives_interval': 10,
+            'keepalives_count': 5,
+        },
+        'CONN_MAX_AGE': 0,  # Close connections immediately after use
+        'POOL_MAX_CONNS': 1  # Limit maximum connections
     }
 }
 
+# Override with DATABASE_URL if available
+database_url = os.getenv('DATABASE_URL')
 if database_url:
-    DATABASES['default'] = dj_database_url.parse(database_url, conn_max_age=600, ssl_require=True)
-    DATABASES['default']['ENGINE'] = 'django.db.backends.postgresql'
+    DATABASES['default'] = dj_database_url.parse(
+        database_url,
+        conn_max_age=0,  # Close connections immediately
+        ssl_require=True
+    )
+    DATABASES['default']['OPTIONS'] = {
+        'sslmode': 'require',
+        'keepalives': 1,
+        'keepalives_idle': 30,
+        'keepalives_interval': 10,
+        'keepalives_count': 5,
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
