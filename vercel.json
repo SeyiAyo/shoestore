@@ -2,19 +2,12 @@
     "version": 2,
     "builds": [
         {
-            "src": "build.sh",
-            "use": "@vercel/static-build",
-            "config": {
-                "distDir": "staticfiles"
-            }
-        },
-        {
-            "src": "shoestore/wsgi.py",
+            "src": "wsgi_handler.py",
             "use": "@vercel/python",
             "config": {
                 "maxLambdaSize": "15mb",
                 "runtime": "python3.12",
-                "installCommand": "pip install -r requirements.txt && python manage.py collectstatic --noinput"
+                "installCommand": "python -m pip install --upgrade pip && pip install -r requirements.txt"
             }
         }
     ],
@@ -25,7 +18,7 @@
         },
         {
             "src": "/(.*)",
-            "dest": "shoestore/wsgi.py"
+            "dest": "wsgi_handler.py"
         }
     ],
     "env": {
