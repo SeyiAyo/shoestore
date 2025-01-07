@@ -307,15 +307,20 @@ LOGGING = {
             'class': 'logging.StreamHandler',
             'formatter': 'verbose',
         },
+        'file': {
+            'class': 'logging.FileHandler',
+            'filename': '/tmp/logs/django.log' if os.getenv('DJANGO_ENV') == 'production' else os.path.join(BASE_DIR, 'logs', 'django.log'),
+            'formatter': 'verbose',
+        }
     },
     'loggers': {
         'django': {
-            'handlers': ['console'],
+            'handlers': ['console', 'file'],
             'level': os.getenv('DJANGO_LOG_LEVEL', 'INFO'),
             'propagate': True,
         },
         'store': {
-            'handlers': ['console'],
+            'handlers': ['console', 'file'],
             'level': 'DEBUG',
             'propagate': True,
         },
@@ -323,6 +328,15 @@ LOGGING = {
 }
 
 # Ensure logs directory exists
-LOGS_DIR = os.path.join(BASE_DIR, 'logs')
+if os.getenv('DJANGO_ENV') == 'production':
+    LOGS_DIR = '/tmp/logs'
+else:
+    LOGS_DIR = os.path.join(BASE_DIR, 'logs')
+
 if not os.path.exists(LOGS_DIR):
-    os.makedirs(LOGS_DIR)
+    try:
+        os.makedirs(LOGS_DIR)
+    except OSError:
+        # If we can't create the directory, modify logging to use console only
+        LOGGING['loggers']['django']['handlers'] = ['console']
+        LOGGING['loggers']['store']['handlers'] = ['console']

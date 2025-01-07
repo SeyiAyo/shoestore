@@ -10,7 +10,12 @@ os.environ.setdefault('MEDIA_ROOT', '/tmp/media')
 # Create runtime directories in /tmp
 DIRS = ['static', 'media', 'logs']
 for dir_name in DIRS:
-    os.makedirs(os.path.join('/tmp', dir_name), exist_ok=True)
+    try:
+        os.makedirs(os.path.join('/tmp', dir_name), exist_ok=True)
+    except OSError:
+        # If directory creation fails, continue anyway
+        # The application will fall back to console logging
+        pass
 
 # Import Django WSGI handler
 from shoestore.wsgi import application
