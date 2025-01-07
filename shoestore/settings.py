@@ -93,15 +93,29 @@ WSGI_APPLICATION = 'shoestore.wsgi.application'
 
 # Database
 import dj_database_url
+from dotenv import load_dotenv
+
+load_dotenv()
+
+database_url = os.getenv('DATABASE_URL', 'postgres://postgres:Seyisensei18@db.vlcyjeetsziuiwrpegvp.supabase.co:5432/postgres')
+
 DATABASES = {
-    'default': dj_database_url.config(
-        default=os.getenv('DATABASE_URL'),
-        conn_max_age=600,
-        conn_health_checks=True,
-        ssl_require=True,
-        engine='django.db.backends.postgresql'
-    )
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': 'Seyisensei18',
+        'HOST': 'db.vlcyjeetsziuiwrpegvp.supabase.co',
+        'PORT': '5432',
+        'OPTIONS': {
+            'sslmode': 'require'
+        }
+    }
 }
+
+if database_url:
+    DATABASES['default'] = dj_database_url.parse(database_url, conn_max_age=600, ssl_require=True)
+    DATABASES['default']['ENGINE'] = 'django.db.backends.postgresql'
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators

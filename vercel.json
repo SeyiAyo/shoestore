@@ -7,7 +7,7 @@
             "config": {
                 "maxLambdaSize": "15mb",
                 "runtime": "python3.9",
-                "installCommand": "pip install -r requirements.txt"
+                "installCommand": "bash vercel.build.sh"
             }
         }
     ],
@@ -20,6 +20,7 @@
     "env": {
         "DJANGO_SETTINGS_MODULE": "shoestore.settings",
         "DJANGO_ENV": "production",
-        "PYTHONPATH": "/var/task"
+        "PYTHONPATH": "/var/task",
+        "DATABASE_URL": "postgres://postgres:Seyisensei18@db.vlcyjeetsziuiwrpegvp.supabase.co:5432/postgres"
     }
 }
