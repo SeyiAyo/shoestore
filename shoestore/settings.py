@@ -105,7 +105,6 @@ DATABASES = {
             'sslmode': 'require',
             'application_name': 'shoestore',
             'connect_timeout': 10,
-            'pool_mode': 'transaction',  # Ensure transaction pooling mode
         },
         'CONN_MAX_AGE': 0,  # Close connections immediately for serverless
         'ATOMIC_REQUESTS': True,  # Wrap each request in a transaction
@@ -116,7 +115,7 @@ DATABASES = {
 database_url = os.getenv('DATABASE_URL')
 if database_url:
     import dj_database_url
-    # Construct the pooler URL with correct credentials
+    # Use the pooler URL
     pooler_url = f"postgresql://postgres.vlcyjeetsziuiwrpegvp:{os.getenv('SUPABASE_DB_PASSWORD')}@aws-0-us-west-1.pooler.supabase.com:6543/postgres"
     DATABASES['default'] = dj_database_url.config(
         default=pooler_url,
@@ -124,12 +123,11 @@ if database_url:
         ssl_require=True,
     )
     
-    # Ensure pooler options are set
+    # Ensure SSL and other required options
     DATABASES['default']['OPTIONS'] = {
         'sslmode': 'require',
         'application_name': 'shoestore',
         'connect_timeout': 10,
-        'pool_mode': 'transaction',
     }
 
 
