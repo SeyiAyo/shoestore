@@ -2,11 +2,18 @@
     "version": 2,
     "builds": [
         {
+            "src": "build.sh",
+            "use": "@vercel/static-build",
+            "config": {
+                "distDir": "staticfiles"
+            }
+        },
+        {
             "src": "shoestore/wsgi.py",
             "use": "@vercel/python",
             "config": {
                 "maxLambdaSize": "15mb",
-                "runtime": "python3.9"
+                "runtime": "python3.12"
             }
         }
     ],
@@ -24,6 +31,8 @@
         "DJANGO_SETTINGS_MODULE": "shoestore.settings",
         "DJANGO_ENV": "production",
         "PYTHONPATH": "/var/task",
+        "SUPABASE_DB_USER": "postgres",
+        "SUPABASE_DB_PASSWORD": "Seyisensei18",
         "DATABASE_URL": "postgres://postgres:Seyisensei18@db.vlcyjeetsziuiwrpegvp.supabase.co:5432/postgres",
         "POSTGRES_SSL": "true"
     }
