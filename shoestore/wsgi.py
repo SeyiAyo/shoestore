@@ -8,10 +8,10 @@ https://docs.djangoproject.com/en/5.0/howto/deployment/wsgi/
 """
 
 import os
-
 from django.core.wsgi import get_wsgi_application
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'shoestore.settings')
+os.environ.setdefault('DJANGO_ENV', 'production')
 
-# This is the WSGI application variable that Vercel looks for
-app = application = get_wsgi_application()
+application = get_wsgi_application()
+app = application

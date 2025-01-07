@@ -8,27 +8,16 @@
                 "maxLambdaSize": "15mb",
                 "runtime": "python3.9"
             }
-        },
-        {
-            "src": "build_files.sh",
-            "use": "@vercel/static-build",
-            "config": {
-                "distDir": "staticfiles"
-            }
         }
     ],
     "routes": [
-        {
-            "src": "/static/(.*)",
-            "dest": "/static/$1"
-        },
         {
             "src": "/(.*)",
             "dest": "shoestore/wsgi.py"
         }
     ],
     "env": {
-        "DJANGO_ENV": "production",
-        "PYTHON_VERSION": "3.9"
+        "DJANGO_SETTINGS_MODULE": "shoestore.settings",
+        "DJANGO_ENV": "production"
     }
 }
