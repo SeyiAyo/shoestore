@@ -92,26 +92,22 @@ TEMPLATES = [
 WSGI_APPLICATION = 'shoestore.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-
+# Database configuration with Supabase transaction pooler
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'postgres',
-        'USER': os.getenv('SUPABASE_DB_USER'),
+        'USER': 'postgres.vlcyjeetsziuiwrpegvp',  # Correct pooler username
         'PASSWORD': os.getenv('SUPABASE_DB_PASSWORD'),
-        'HOST': 'db.vlcyjeetsziuiwrpegvp.supabase.co',
-        'PORT': '5432',
+        'HOST': 'aws-0-us-west-1.pooler.supabase.com',
+        'PORT': '6543',
         'OPTIONS': {
             'sslmode': 'require',
-            'keepalives': 1,
-            'keepalives_idle': 30,
-            'keepalives_interval': 10,
-            'keepalives_count': 5,
-            'connect_timeout': 30,
+            'application_name': 'shoestore',
+            'connect_timeout': 10,
+            'pool_mode': 'transaction',  # Ensure transaction pooling mode
         },
-        'CONN_MAX_AGE': None,  # Persistent connections
+        'CONN_MAX_AGE': 0,  # Close connections immediately for serverless
         'ATOMIC_REQUESTS': True,  # Wrap each request in a transaction
     }
 }
@@ -120,26 +116,22 @@ DATABASES = {
 database_url = os.getenv('DATABASE_URL')
 if database_url:
     import dj_database_url
+    # Construct the pooler URL with correct credentials
+    pooler_url = f"postgresql://postgres.vlcyjeetsziuiwrpegvp:{os.getenv('SUPABASE_DB_PASSWORD')}@aws-0-us-west-1.pooler.supabase.com:6543/postgres"
     DATABASES['default'] = dj_database_url.config(
-        default=database_url,
-        conn_max_age=None,
+        default=pooler_url,
+        conn_max_age=0,
         ssl_require=True,
     )
-    # Ensure SSL and other required options are set
+    
+    # Ensure pooler options are set
     DATABASES['default']['OPTIONS'] = {
         'sslmode': 'require',
-        'keepalives': 1,
-        'keepalives_idle': 30,
-        'keepalives_interval': 10,
-        'keepalives_count': 5,
-        'connect_timeout': 30,
+        'application_name': 'shoestore',
+        'connect_timeout': 10,
+        'pool_mode': 'transaction',
     }
 
-# Configure database for production environment
-if os.getenv('DJANGO_ENV') == 'production':
-    # Add connection pooling settings
-    DATABASES['default']['CONN_MAX_AGE'] = 0  # Close connections after each request
-    DATABASES['default']['CONN_HEALTH_CHECKS'] = True
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
