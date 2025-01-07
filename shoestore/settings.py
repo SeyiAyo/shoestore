@@ -101,14 +101,10 @@ WSGI_APPLICATION = 'shoestore.wsgi.application'
 DB_CONN_MAX_AGE = 0  # Close connections immediately
 DB_CONN_HEALTH_CHECKS = True
 
-# Increase database timeouts for serverless environment
-DB_CONNECT_TIMEOUT = 60  # seconds
-DB_STATEMENT_TIMEOUT = 30000  # milliseconds (30 seconds)
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'HOST': 'db.vlcyjeetsziuiwrpegvp.supabase.co',  # Using the direct database host
+        'HOST': 'db.vlcyjeetsziuiwrpegvp.supabase.co',
         'NAME': 'postgres',
         'USER': os.getenv('SUPABASE_DB_USER'),
         'PASSWORD': os.getenv('SUPABASE_DB_PASSWORD'),
@@ -119,8 +115,7 @@ DATABASES = {
             'keepalives_idle': 30,
             'keepalives_interval': 10,
             'keepalives_count': 5,
-            'connect_timeout': DB_CONNECT_TIMEOUT,
-            'statement_timeout': DB_STATEMENT_TIMEOUT,
+            'connect_timeout': 60,  # 60 seconds
         },
         'CONN_MAX_AGE': DB_CONN_MAX_AGE,
         'CONN_HEALTH_CHECKS': DB_CONN_HEALTH_CHECKS,
@@ -145,8 +140,7 @@ if database_url:
         'keepalives_idle': 30,
         'keepalives_interval': 10,
         'keepalives_count': 5,
-        'connect_timeout': DB_CONNECT_TIMEOUT,
-        'statement_timeout': DB_STATEMENT_TIMEOUT,
+        'connect_timeout': 60,  # 60 seconds
     }
     DATABASES['default']['CONN_HEALTH_CHECKS'] = DB_CONN_HEALTH_CHECKS
     DATABASES['default']['POOL_MAX_CONNS'] = 1
