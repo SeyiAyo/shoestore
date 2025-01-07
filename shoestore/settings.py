@@ -184,26 +184,26 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-# Create static directory if it doesn't exist
+if os.getenv('DJANGO_ENV') == 'production':
+    STATIC_ROOT = os.getenv('STATIC_ROOT', '/tmp/static')
+    MEDIA_ROOT = os.getenv('MEDIA_ROOT', '/tmp/media')
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+    if 'whitenoise.middleware.WhiteNoiseMiddleware' not in MIDDLEWARE:
+        MIDDLEWARE.insert(1, 'whitenoise.middleware.WhiteNoiseMiddleware')
+else:
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+    MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# Create static directory if it doesn't exist (for local development)
 STATIC_DIR = os.path.join(BASE_DIR, 'static')
-if not os.path.exists(STATIC_DIR):
+if not os.path.exists(STATIC_DIR) and not os.getenv('DJANGO_ENV') == 'production':
     os.makedirs(STATIC_DIR)
 
 STATICFILES_DIRS = [STATIC_DIR]
 
-if os.getenv('DJANGO_ENV') == 'production':
-    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-    MIDDLEWARE.insert(1, 'whitenoise.middleware.WhiteNoiseMiddleware')
-
 # Media files
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-# Create media directory if it doesn't exist
-if not os.path.exists(MEDIA_ROOT):
-    os.makedirs(MEDIA_ROOT)
 
 # Security settings for production
 SECURE_SSL_REDIRECT = os.getenv('DJANGO_ENV') == 'production'
