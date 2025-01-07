@@ -59,6 +59,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',  
     'django.contrib.sessions.middleware.SessionMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -67,9 +68,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
-if os.getenv('DJANGO_ENV') == 'production':
-    MIDDLEWARE.insert(1, 'whitenoise.middleware.WhiteNoiseMiddleware')
 
 ROOT_URLCONF = 'shoestore.urls'
 
@@ -182,24 +180,23 @@ USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/5.1/howto/static-files/
+
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-if os.getenv('DJANGO_ENV') == 'production':
-    STATIC_ROOT = os.getenv('STATIC_ROOT', '/tmp/static')
-    MEDIA_ROOT = os.getenv('MEDIA_ROOT', '/tmp/media')
-    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-    if 'whitenoise.middleware.WhiteNoiseMiddleware' not in MIDDLEWARE:
-        MIDDLEWARE.insert(1, 'whitenoise.middleware.WhiteNoiseMiddleware')
-else:
-    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-    MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+# Extra places for collectstatic to find static files
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
 
-# Create static directory if it doesn't exist (for local development)
-STATIC_DIR = os.path.join(BASE_DIR, 'static')
-if not os.path.exists(STATIC_DIR) and not os.getenv('DJANGO_ENV') == 'production':
-    os.makedirs(STATIC_DIR)
+# Simplified static file serving for production
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-STATICFILES_DIRS = [STATIC_DIR]
+# Configure WhiteNoise
+WHITENOISE_USE_FINDERS = True
+WHITENOISE_MANIFEST_STRICT = False
+WHITENOISE_AUTOREFRESH = True
 
 # Media files
 MEDIA_URL = '/media/'
