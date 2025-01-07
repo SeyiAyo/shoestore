@@ -36,7 +36,7 @@ ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
     '10.0.2.2',
-    'shoestore-fk2wj4nec-oluwaseyi-ayoolas-projects.vercel.app'
+    'shoestore-fk2wjwjnec-oluwaseyi-ayoolas-projects.vercel.app'
 ]
 
 
@@ -96,13 +96,16 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+database_config = dj_database_url.config(
+    default=os.getenv('DATABASE_URL'),
+    conn_max_age=600,
+    conn_health_checks=True,
+    ssl_require=True,
+)
+database_config['ENGINE'] = 'django.db.backends.postgresql'
+
 DATABASES = {
-    'default': dj_database_url.config(
-        default=os.getenv('DATABASE_URL'),
-        conn_max_age=600,
-        conn_health_checks=True,
-        ssl_require=True
-    )
+    'default': database_config
 }
 
 # Password validation
