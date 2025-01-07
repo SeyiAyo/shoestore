@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shoe Store API</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+        .endpoint {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+        }
+        .endpoint h3 {
+            margin: 0 0 10px 0;
+            color: #2c5282;
+        }
+        code {
+            background-color: #edf2f7;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Shoe Store API Documentation</h1>
+        
+        <div class="endpoint">
+            <h3>Authentication Endpoints</h3>
+            <p><code>POST /api/token/</code> - Obtain JWT token pair</p>
+            <p><code>POST /api/token/refresh/</code> - Refresh JWT token</p>
+            <p><code>POST /api/token/verify/</code> - Verify JWT token</p>
+        </div>
+
+        <div class="endpoint">
+            <h3>Product Endpoints</h3>
+            <p><code>GET /api/products/</code> - List all products</p>
+            <p><code>GET /api/products/{id}/</code> - Get product details</p>
+            <p><code>GET /api/categories/</code> - List all categories</p>
+        </div>
+
+        <div class="endpoint">
+            <h3>User Endpoints</h3>
+            <p><code>GET /api/profile/</code> - Get user profile</p>
+            <p><code>PUT /api/profile/</code> - Update user profile</p>
+        </div>
+
+        <div class="endpoint">
+            <h3>Order Endpoints</h3>
+            <p><code>GET /api/orders/</code> - List user orders</p>
+            <p><code>POST /api/orders/</code> - Create new order</p>
+            <p><code>GET /api/orders/{id}/</code> - Get order details</p>
+        </div>
+    </div>
+</body>
+</html>

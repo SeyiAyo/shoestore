@@ -10,13 +10,14 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
-from pathlib import Path
-from datetime import timedelta
 import os
+from pathlib import Path
 from dotenv import load_dotenv
 
 # Load environment variables from .env file
 load_dotenv()
+
+from datetime import timedelta
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -75,7 +76,9 @@ ROOT_URLCONF = 'shoestore.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            BASE_DIR / 'store' / 'templates',
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -92,19 +95,23 @@ WSGI_APPLICATION = 'shoestore.wsgi.application'
 
 
 # Database
-import dj_database_url
-from dotenv import load_dotenv
+# https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-load_dotenv()
+# Database connection pooling and timeouts
+DB_CONN_MAX_AGE = 0  # Close connections immediately
+DB_CONN_HEALTH_CHECKS = True
 
-# Database configuration with connection pooling for serverless
+# Increase database timeouts for serverless environment
+DB_CONNECT_TIMEOUT = 60  # seconds
+DB_STATEMENT_TIMEOUT = 30000  # milliseconds (30 seconds)
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
+        'HOST': 'db.vlcyjeetsziuiwrpegvp.supabase.co',  # Using the direct database host
         'NAME': 'postgres',
-        'USER': 'postgres',
-        'PASSWORD': 'Seyisensei18',
-        'HOST': 'db.vlcyjeetsziuiwrpegvp.supabase.co',
+        'USER': os.getenv('SUPABASE_DB_USER'),
+        'PASSWORD': os.getenv('SUPABASE_DB_PASSWORD'),
         'PORT': '5432',
         'OPTIONS': {
             'sslmode': 'require',
@@ -112,27 +119,37 @@ DATABASES = {
             'keepalives_idle': 30,
             'keepalives_interval': 10,
             'keepalives_count': 5,
+            'connect_timeout': DB_CONNECT_TIMEOUT,
+            'statement_timeout': DB_STATEMENT_TIMEOUT,
         },
-        'CONN_MAX_AGE': 0,  # Close connections immediately after use
-        'POOL_MAX_CONNS': 1  # Limit maximum connections
+        'CONN_MAX_AGE': DB_CONN_MAX_AGE,
+        'CONN_HEALTH_CHECKS': DB_CONN_HEALTH_CHECKS,
+        'POOL_MAX_CONNS': 1  # Limit maximum connections for serverless environment
     }
 }
 
-# Override with DATABASE_URL if available
+# Override database settings with DATABASE_URL if available
 database_url = os.getenv('DATABASE_URL')
 if database_url:
+    import dj_database_url
     DATABASES['default'] = dj_database_url.parse(
         database_url,
-        conn_max_age=0,  # Close connections immediately
-        ssl_require=True
+        conn_max_age=DB_CONN_MAX_AGE,
+        ssl_require=True,
+        engine='django.db.backends.postgresql'
     )
+    # Ensure SSL and connection settings are preserved
     DATABASES['default']['OPTIONS'] = {
         'sslmode': 'require',
         'keepalives': 1,
         'keepalives_idle': 30,
         'keepalives_interval': 10,
         'keepalives_count': 5,
+        'connect_timeout': DB_CONNECT_TIMEOUT,
+        'statement_timeout': DB_STATEMENT_TIMEOUT,
     }
+    DATABASES['default']['CONN_HEALTH_CHECKS'] = DB_CONN_HEALTH_CHECKS
+    DATABASES['default']['POOL_MAX_CONNS'] = 1
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
