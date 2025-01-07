@@ -95,59 +95,51 @@ WSGI_APPLICATION = 'shoestore.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-# Database connection pooling and timeouts
-DB_CONN_MAX_AGE = 0  # Close connections immediately after use for serverless
-DB_CONN_HEALTH_CHECKS = True
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'HOST': 'db.vlcyjeetsziuiwrpegvp.supabase.co',
         'NAME': 'postgres',
         'USER': os.getenv('SUPABASE_DB_USER'),
         'PASSWORD': os.getenv('SUPABASE_DB_PASSWORD'),
+        'HOST': 'db.vlcyjeetsziuiwrpegvp.supabase.co',
         'PORT': '5432',
         'OPTIONS': {
             'sslmode': 'require',
             'keepalives': 1,
-            'keepalives_idle': 20,
-            'keepalives_interval': 5,
-            'keepalives_count': 3,
-            'connect_timeout': 10,  # Reduced timeout for faster failure detection
+            'keepalives_idle': 30,
+            'keepalives_interval': 10,
+            'keepalives_count': 5,
+            'connect_timeout': 30,
         },
-        'CONN_MAX_AGE': DB_CONN_MAX_AGE,
-        'CONN_HEALTH_CHECKS': DB_CONN_HEALTH_CHECKS,
+        'CONN_MAX_AGE': None,  # Persistent connections
+        'ATOMIC_REQUESTS': True,  # Wrap each request in a transaction
     }
 }
-
-# Update database options for production environment
-if os.getenv('DJANGO_ENV') == 'production':
-    DATABASES['default']['OPTIONS'].update({
-        'application_name': 'shoestore_api',  # Helps identify connections in logs
-        'min_size': 1,  # Minimum number of connections in the pool
-        'max_size': 2,  # Maximum number of connections in the pool
-    })
 
 # Override database settings with DATABASE_URL if available
 database_url = os.getenv('DATABASE_URL')
 if database_url:
     import dj_database_url
-    DATABASES['default'] = dj_database_url.parse(
-        database_url,
-        conn_max_age=DB_CONN_MAX_AGE,
+    DATABASES['default'] = dj_database_url.config(
+        default=database_url,
+        conn_max_age=None,
         ssl_require=True,
-        engine='django.db.backends.postgresql'
     )
-    # Ensure SSL and connection settings are preserved
+    # Ensure SSL and other required options are set
     DATABASES['default']['OPTIONS'] = {
         'sslmode': 'require',
         'keepalives': 1,
-        'keepalives_idle': 20,
-        'keepalives_interval': 5,
-        'keepalives_count': 3,
-        'connect_timeout': 10,  # Reduced timeout for faster failure detection
+        'keepalives_idle': 30,
+        'keepalives_interval': 10,
+        'keepalives_count': 5,
+        'connect_timeout': 30,
     }
-    DATABASES['default']['CONN_HEALTH_CHECKS'] = DB_CONN_HEALTH_CHECKS
+
+# Configure database for production environment
+if os.getenv('DJANGO_ENV') == 'production':
+    # Add connection pooling settings
+    DATABASES['default']['CONN_MAX_AGE'] = 0  # Close connections after each request
+    DATABASES['default']['CONN_HEALTH_CHECKS'] = True
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
