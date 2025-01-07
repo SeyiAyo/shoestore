@@ -8,12 +8,14 @@ class Category(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField(blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ['name']
+        verbose_name_plural = 'Categories'
 
     def __str__(self):
         return self.name
-
-    class Meta:
-        verbose_name_plural = "Categories"
 
 class Product(models.Model):
     name = models.CharField(max_length=200)
@@ -24,12 +26,13 @@ class Product(models.Model):
     rating = models.DecimalField(max_digits=3, decimal_places=2, default=0.00)
     review_count = models.IntegerField(default=0)
     created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ['name']
 
     def __str__(self):
         return self.name
-
-    class Meta:
-        ordering = ['-created_at']
 
 class Size(models.Model):
     GENDER_CHOICES = [
@@ -42,6 +45,9 @@ class Size(models.Model):
     size = models.CharField(max_length=10)  # Store as 'US 7', 'US 8', etc.
     gender = models.CharField(max_length=1, choices=GENDER_CHOICES)
     quantity = models.IntegerField(default=0)
+
+    class Meta:
+        ordering = ['size']
 
     def __str__(self):
         return f"{self.product.name} - {self.get_gender_display()} Size {self.size}"
@@ -67,6 +73,9 @@ class Order(models.Model):
     shipping_address = models.TextField()
     total_amount = models.DecimalField(max_digits=10, decimal_places=2)
 
+    class Meta:
+        ordering = ['-created_at']
+
     def __str__(self):
         return f"Order #{self.id} by {self.user.username}"
 
@@ -76,6 +85,9 @@ class OrderItem(models.Model):
     size = models.ForeignKey(Size, on_delete=models.CASCADE)
     quantity = models.IntegerField(default=1)
     price = models.DecimalField(max_digits=10, decimal_places=2)
+
+    class Meta:
+        ordering = ['order__created_at']
 
     def __str__(self):
         return f"{self.quantity}x {self.product.name} (Size: {self.size.size})"
@@ -91,6 +103,9 @@ class Profile(models.Model):
     profile_picture = models.ImageField(upload_to='profile_pics/', null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ['user__username']
 
     def __str__(self):
         return f"{self.user.username}'s Profile"
