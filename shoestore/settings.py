@@ -88,20 +88,22 @@ TEMPLATES = [
 WSGI_APPLICATION = 'shoestore.wsgi.application'
 
 
-# Database configuration - Using PostgreSQL
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
-        'USER': 'postgres',
-        'PASSWORD': 'Seyisensei18',
-        'HOST': 'db.vlcyjeetsziuiwrpegvp.supabase.co',
-        'PORT': '5432',
-    }
-}
+# Database
+# https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-# Enforce PostgreSQL
-DATABASE_ENGINE = 'django.db.backends.postgresql'
+import dj_database_url
+from dotenv import load_dotenv
+
+load_dotenv()
+
+DATABASES = {
+    'default': dj_database_url.config(
+        default=os.getenv('DATABASE_URL'),
+        conn_max_age=600,
+        conn_health_checks=True,
+        ssl_require=True
+    )
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
@@ -142,6 +144,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
@@ -260,3 +263,10 @@ LOGGING = {
 LOGS_DIR = os.path.join(BASE_DIR, 'logs')
 if not os.path.exists(LOGS_DIR):
     os.makedirs(LOGS_DIR)
+
+# Security settings for production
+SECURE_SSL_REDIRECT = os.getenv('DJANGO_ENV') == 'production'
+SESSION_COOKIE_SECURE = os.getenv('DJANGO_ENV') == 'production'
+CSRF_COOKIE_SECURE = os.getenv('DJANGO_ENV') == 'production'
+SECURE_BROWSER_XSS_FILTER = True
+SECURE_CONTENT_TYPE_NOSNIFF = True
