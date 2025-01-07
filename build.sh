@@ -1,16 +1,21 @@
 #!/bin/bash
 
+echo "Starting build process..."
+
 # Exit on error
 set -e
 
-# Install Python dependencies
+echo "Installing Python dependencies..."
+python -m pip install --upgrade pip
 pip install -r requirements.txt
 
-# Create necessary directories
+echo "Creating necessary directories..."
 mkdir -p static staticfiles media logs
 
-# Collect static files
+echo "Collecting static files..."
 python manage.py collectstatic --noinput
 
-# Run migrations
+echo "Running migrations..."
 python manage.py migrate --noinput
+
+echo "Build process completed."
