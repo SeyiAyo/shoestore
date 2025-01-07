@@ -87,31 +87,20 @@ TEMPLATES = [
 WSGI_APPLICATION = 'shoestore.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/5.1/ref/settings/#databases
+# Database configuration - Using PostgreSQL
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': 'Seyisensei18',
+        'HOST': 'lzyyjfjndqfuflwcfypt.supabase.co',
+        'PORT': '5432',
+    }
+}
 
-# Database configuration
-if 'VERCEL' in os.environ:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME': os.getenv('DB_NAME', 'postgres'),
-            'USER': os.getenv('DB_USER', 'postgres'),
-            'PASSWORD': os.getenv('DB_PASSWORD', 'Seyisensei18'),
-            'HOST': os.getenv('DB_HOST', 'lzyyjfjndqfuflwcfypt.supabase.co'),
-            'PORT': os.getenv('DB_PORT', '5432'),
-            'OPTIONS': {
-                'sslmode': 'require'
-            }
-        }
-    }
-else:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
-        }
-    }
+# Enforce PostgreSQL
+DATABASE_ENGINE = 'django.db.backends.postgresql'
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
