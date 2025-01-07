@@ -98,7 +98,6 @@ WSGI_APPLICATION = 'shoestore.wsgi.application'
 # Database connection pooling and timeouts
 DB_CONN_MAX_AGE = 0  # Close connections immediately after use for serverless
 DB_CONN_HEALTH_CHECKS = True
-DB_MAX_RETRIES = 3  # Number of connection retry attempts
 
 DATABASES = {
     'default': {
@@ -115,14 +114,19 @@ DATABASES = {
             'keepalives_interval': 5,
             'keepalives_count': 3,
             'connect_timeout': 10,  # Reduced timeout for faster failure detection
-            'retries': DB_MAX_RETRIES,  # Add connection retries
-            'pool_timeout': 30,  # Maximum time to wait for a connection from the pool
-            'max_connections': 10,  # Limit max connections per instance
         },
         'CONN_MAX_AGE': DB_CONN_MAX_AGE,
         'CONN_HEALTH_CHECKS': DB_CONN_HEALTH_CHECKS,
     }
 }
+
+# Update database options for production environment
+if os.getenv('DJANGO_ENV') == 'production':
+    DATABASES['default']['OPTIONS'].update({
+        'application_name': 'shoestore_api',  # Helps identify connections in logs
+        'min_size': 1,  # Minimum number of connections in the pool
+        'max_size': 2,  # Maximum number of connections in the pool
+    })
 
 # Override database settings with DATABASE_URL if available
 database_url = os.getenv('DATABASE_URL')
@@ -142,9 +146,6 @@ if database_url:
         'keepalives_interval': 5,
         'keepalives_count': 3,
         'connect_timeout': 10,  # Reduced timeout for faster failure detection
-        'retries': DB_MAX_RETRIES,  # Add connection retries
-        'pool_timeout': 30,  # Maximum time to wait for a connection from the pool
-        'max_connections': 10,  # Limit max connections per instance
     }
     DATABASES['default']['CONN_HEALTH_CHECKS'] = DB_CONN_HEALTH_CHECKS
 
@@ -191,11 +192,13 @@ STATICFILES_DIRS = [
 ]
 
 # Simplified static file serving for production
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+if os.getenv('DJANGO_ENV') == 'production':
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'  
+else:
+    STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 
-# Configure WhiteNoise
+# WhiteNoise configuration
 WHITENOISE_USE_FINDERS = True
-WHITENOISE_MANIFEST_STRICT = False
 WHITENOISE_AUTOREFRESH = True
 
 # Media files
