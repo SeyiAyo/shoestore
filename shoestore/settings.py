@@ -98,8 +98,9 @@ WSGI_APPLICATION = 'shoestore.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 # Database connection pooling and timeouts
-DB_CONN_MAX_AGE = 0  # Close connections immediately
+DB_CONN_MAX_AGE = 0  # Close connections immediately after use for serverless
 DB_CONN_HEALTH_CHECKS = True
+DB_MAX_RETRIES = 3  # Number of connection retry attempts
 
 DATABASES = {
     'default': {
@@ -112,14 +113,16 @@ DATABASES = {
         'OPTIONS': {
             'sslmode': 'require',
             'keepalives': 1,
-            'keepalives_idle': 30,
-            'keepalives_interval': 10,
-            'keepalives_count': 5,
-            'connect_timeout': 60,  # 60 seconds
+            'keepalives_idle': 20,
+            'keepalives_interval': 5,
+            'keepalives_count': 3,
+            'connect_timeout': 10,  # Reduced timeout for faster failure detection
+            'retries': DB_MAX_RETRIES,  # Add connection retries
+            'pool_timeout': 30,  # Maximum time to wait for a connection from the pool
+            'max_connections': 10,  # Limit max connections per instance
         },
         'CONN_MAX_AGE': DB_CONN_MAX_AGE,
         'CONN_HEALTH_CHECKS': DB_CONN_HEALTH_CHECKS,
-        'POOL_MAX_CONNS': 1  # Limit maximum connections for serverless environment
     }
 }
 
@@ -137,13 +140,15 @@ if database_url:
     DATABASES['default']['OPTIONS'] = {
         'sslmode': 'require',
         'keepalives': 1,
-        'keepalives_idle': 30,
-        'keepalives_interval': 10,
-        'keepalives_count': 5,
-        'connect_timeout': 60,  # 60 seconds
+        'keepalives_idle': 20,
+        'keepalives_interval': 5,
+        'keepalives_count': 3,
+        'connect_timeout': 10,  # Reduced timeout for faster failure detection
+        'retries': DB_MAX_RETRIES,  # Add connection retries
+        'pool_timeout': 30,  # Maximum time to wait for a connection from the pool
+        'max_connections': 10,  # Limit max connections per instance
     }
     DATABASES['default']['CONN_HEALTH_CHECKS'] = DB_CONN_HEALTH_CHECKS
-    DATABASES['default']['POOL_MAX_CONNS'] = 1
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
